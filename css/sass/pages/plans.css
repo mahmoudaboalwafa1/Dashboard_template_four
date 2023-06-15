@@ -1,0 +1,111 @@
+aside li:nth-child(8),
+aside li:hover {
+  background-color: #f6f6f6;
+  border-radius: 5px;
+}
+
+/* start Plans */
+div.plans {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 767px) {
+  div.plans {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+div.plan {
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+div.plen {
+  text-align: center;
+  border-radius: 6px;
+  position: relative;
+  background-color: #22c55e;
+  color: white;
+}
+
+div.blue {
+  background-color: #0075ff;
+}
+
+div.orange {
+  background-color: #f59e0b;
+}
+
+div.plen::after {
+  content: "";
+  border: solid 2px #22c55e;
+  border-radius: 6px;
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  position: absolute;
+  left: -5px;
+  top: -5px;
+}
+
+div.blue::after {
+  border: solid 2px #0075ff;
+}
+
+div.orange::after {
+  border: solid 2px #f59e0b;
+}
+
+div.plen h2 {
+  font-size: 45px;
+}
+
+i.yes {
+  color: #22c55e;
+}
+
+i.no {
+  color: #f44336;
+}
+
+i.help {
+  color: #888;
+}
+
+div.detail-plan {
+  font-weight: 600;
+  position: relative;
+}
+
+div.detail-plan::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  background-color: #ddd;
+  width: 100%;
+  height: 1px;
+}
+
+p.current {
+  text-align: center;
+  font-weight: 600;
+}
+
+div.plan a:last-of-type {
+  display: block;
+  width: 50px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+div.plan a.joing {
+  background-color: #22c55e;
+}
+
+/* end Plans *//*# sourceMappingURL=plans.css.map */

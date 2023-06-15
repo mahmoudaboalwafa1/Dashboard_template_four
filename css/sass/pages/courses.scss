@@ -1,0 +1,82 @@
+
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+
+@include navLinkNow(nth-child(5));
+
+
+div.courses {
+  padding: 0 20px;
+  margin-top: 40px;
+  @include grid(300px, 20px);
+}
+
+
+@media (max-width: 768px) {
+  div.courses {
+    padding: 0 10px;
+  }
+}
+
+div.course {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  height: fit-content;
+}
+
+div.course img:not(img.team) {
+  width: 100%;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+div.courses p:not(p.peo) {
+  width: 300px;
+  max-width: 100%;
+  padding-bottom: 50px;
+  line-height: 1.8;
+}
+
+div.courses p.peo,
+div.courses i {
+  font-size: 13px;
+}
+
+img.team {
+  width: 60px;
+  z-index: 2;
+  border: solid 2px white;
+  border-radius: 50%;
+  @include movePosition(absolute,"left","top",20px, 20px);
+}
+
+div.icons {
+  padding: 10px 0;
+}
+
+div.icons::before {
+  content: "";
+  @include propsElement($white_Two_color,null,calc(100% + 50px), 1px);
+  @include movePosition(absolute,"left","top",-25px,-10px);
+}
+
+div.course input {
+  appearance: none;
+}
+
+div.course label {
+  @include propsElement($blue_color, $white_color,null,null);
+  @include movePosition(absolute, "left","bottom",50%,33px);
+  padding: 5px 10px;
+  border-radius: 6px;
+  transform: translateX(-50%);
+  z-index: 1;
+  cursor: pointer;
+}
+
+div.course input:checked + label {
+  @include propsElement($green_color,$blue_hover_color,null,null)
+}
+
+/* end courses */

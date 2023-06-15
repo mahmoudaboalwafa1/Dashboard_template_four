@@ -1,0 +1,68 @@
+/* start global rules */
+@use "./sass/layout/aside" as *;
+@use "./sass/layout/header" as *;
+
+:root {
+    --color-red: #f44336;
+    --color-grey: #888;
+    --color-blue: #0075ff;
+    --color-blue-hover: #0d69d5;
+    --color-orange: #f59e0b;
+    --color-green: #22c55e;
+    --color-hr: #ddd;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #0075ff;
+  }
+  
+  body {
+    font-family: sans-serif;
+  overflow-X: hidden;
+  }
+  
+  .container {
+    padding: 0 25px;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 15px;
+    }
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* end global rules */
+  main {
+    display: flex;
+  }
+
+  section.allsections {
+    width: calc(100% - 200px);
+    background-color: #f1f5f9;
+    @media (max-width: 768px) {
+      width: calc(100% - 70px);
+  }
+  }

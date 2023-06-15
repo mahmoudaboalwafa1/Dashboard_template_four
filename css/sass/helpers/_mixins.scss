@@ -1,0 +1,55 @@
+@use "./variables" as *;
+
+@mixin navLinkNow($element) {
+  aside li:#{$element},
+  aside li:hover {
+    background-color: #f6f6f6;
+    border-radius: 5px;
+  }
+}
+
+@mixin grid($column, $gap, $margin) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($column, 1fr));
+  margin: if($margin, $margin, null);
+  gap: if($gap, $gap, null);
+}
+
+@mixin flex($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+// media Query
+@mixin mobileMedia {
+  @media (#{$mobile_screen}) {
+    @content;
+  }
+}
+
+@mixin mediaChoosen($media) {
+  @media (#{$media}) {
+    @content;
+  }
+}
+
+@mixin movePosition($position, $x, $y, $valueX, $valueY) {
+  position: $position;
+  #{$x}: $valueX;
+  #{$y}: $valueY;
+}
+
+@mixin propsElement($bgColor, $color, $width, $height) {
+  background-color: if($bgColor, $bgColor, null);
+  color: if($color, $color, null);
+  width: if($width, $width, null);
+  height: if($height, $height, null);
+}
+
+@mixin table($select, $width) {
+  tr th:#{$select},
+  tr td:#{$select} {
+    width: $width;
+  }
+}

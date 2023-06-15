@@ -1,0 +1,387 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+
+@include navLinkNow(nth-child(3));
+
+/* end aside */
+/* start nav */
+
+nav form {
+  border: solid 1px #ccc;
+  padding: 10px;
+}
+
+nav input {
+  border: none;
+  outline: none;
+  transition: 0.5s;
+  @include propsElement(transparent, null, 120px, null);
+}
+
+nav input:focus::placeholder {
+  opacity: 0;
+}
+
+nav input:focus {
+  width: 180px;
+}
+
+div.acc i {
+  padding-right: 20px;
+  position: relative;
+}
+
+div.acc i::after {
+  content: "";
+  border-radius: 50%;
+  @include movePosition(absolute, "left", "top", 13px, -16px);
+  @include propsElement($red_color, null, 10px, 10px);
+}
+
+div.acc img {
+  width: 30px;
+}
+
+/* end nav */
+
+h1.dash {
+  font-size: 40px;
+  padding-top: 20px;
+  position: relative;
+}
+
+h1.dash::after {
+  content: "";
+  @include movePosition(absolute, "left", "bottom", 0, -10px);
+  @include propsElement($white_color, null, 140px, 2px);
+}
+
+h1.dash::before {
+  content: "";
+  z-index: 1;
+  @include movePosition(absolute, "left", "bottom", 0, -10px);
+  @include propsElement($black_color, null, 40px, 2px);
+}
+
+/* start dashboard */
+div.all {
+  display: flex;
+  padding-top: 20px;
+  @include mediaChoosen("max-width:992px") {
+    flex-direction: column;
+  }
+  @include mediaChoosen("max-width: 510px") {
+    @include grid(200px, null, 30px 10px 0 10px);
+  }
+}
+
+/* start profile */
+section.profile {
+  margin: 40px 20px 0 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+section.profile p:first-of-type {
+  font-weight: bold;
+}
+
+section.profile img {
+  width: 150px;
+  padding-top: 100px;
+  padding-left: 30px;
+}
+
+div.stars::before,
+div.stars::after {
+  content: "";
+  transform: translate(-50%);
+  border-radius: 10px;
+  @include propsElement($gray_color, null, calc(100% - 80px), 5px);
+  @include movePosition(absolute, "left", "top", 50%, 20px);
+  @include mobileMedia {
+    width: calc(100% - 300px);
+    left: calc(50% - 30px);
+  }
+}
+
+div.stars::after {
+  left: 40%;
+  @include propsElement($blue_color, null, calc(100% - 80px), null);
+}
+
+section.profile i {
+  color: var(--color-orange);
+  padding-top: 40px;
+}
+
+p.rate {
+  font-size: 13px;
+}
+
+ul.details {
+  padding-left: 100px;
+  padding-bottom: 50px;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+ul.details:hover::after {
+  content: "";
+  z-index: -5;
+  @include propsElement(#f9f9f9, null, calc(100% - 60px), 100%);
+  @include movePosition(absolute, "left", "bottom", 45px, 25px);
+}
+
+ul.details:not(:last-of-type)::before {
+  content: "";
+  @include propsElement($white_Two_color, null, calc(100% - 80px), 1px);
+  @include movePosition(absolute, "left", "bottom", 25px, 45px);
+}
+
+@media (max-width: 768px) {
+  ul.details {
+    padding-left: 0;
+    text-align: center;
+  }
+}
+
+ul.details:last-of-type {
+  padding-bottom: 20px;
+}
+
+div.prof {
+  margin: 0 45px;
+  padding: 0 auto;
+  position: relative;
+  @include mobileMedia {
+    margin-top: -90px;
+    padding-bottom: 50px;
+  }
+}
+
+div.prof::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 50px;
+  @include propsElement($white_Two_color, null, 1px, calc(100% - 150px));
+  @include movePosition(absolute, "right", "top", -20px, 50px);
+  @include mobileMedia {
+    display: none;
+  }
+}
+
+ul.details span {
+  color: $black_color;
+}
+
+div.info {
+  @include mobileMedia {
+    display: block;
+  }
+  @include mediaChoosen("min-width: 993px) and (max-width: 1340px") {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  white-space: nowrap;
+
+  div.info div.full,
+  div.info div.gendar,
+  div.country {
+    @include mediaChoosen("min-width: 993px) and (max-width: 1340px") {
+      flex-basis: 50%;
+    }
+  }
+
+  li {
+    padding-right: 70px;
+    @include mobileMedia {
+      padding-right: 0;
+    }
+  }
+}
+
+div.full,
+div.gendar,
+div.country {
+  font-size: 14px;
+}
+
+.toggle {
+  appearance: none;
+  border-radius: 35px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s;
+  margin-right: auto;
+  @include propsElement($blue_color, null, 90px, 20px);
+}
+
+.toggle:checked {
+  background-color: #ccc;
+  transition: 0.3s;
+}
+
+.toggle:after {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  border-radius: 50%;
+  animation: before 0.3s forwards linear;
+  @include movePosition(absolute, "right", "top", 5px, 2px);
+  @include propsElement($white_color, null, 15px, 15px);
+  @include flex(center, center);
+}
+
+@keyframes after {
+  0%,
+  50% {
+    right: 5px;
+  }
+
+  100% {
+    left: 5px;
+  }
+}
+@keyframes before {
+  0%,
+  50% {
+    left: 5px;
+  }
+
+  100% {
+    right: 5px;
+  }
+}
+
+.toggle:checked::after {
+  content: "\f00d";
+  animation: after 0.3s forwards linear;
+}
+
+@media (min-width: 993px) and (max-width: 1340px) {
+  .toggle {
+    margin-left: auto;
+    left: 40px;
+    transform: translateX(-50%);
+    margin-top: 30px;
+  }
+}
+
+div.infor {
+  @include mobileMedia {
+    flex-direction: column;
+    font-size: 13px;
+  }
+}
+
+p.textt {
+  width: 200px;
+  margin: 0 auto;
+}
+/* end profile */
+
+/* start skills  */
+section.skills {
+  flex-basis: 40%;
+  flex-grow: 2;
+}
+
+@media (max-width: 992px) {
+  section.skills {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 768px) {
+  section.skills {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px);
+  }
+}
+
+section.skills ul {
+  position: relative;
+}
+
+section.skills ul:not(:last-of-type)::after {
+  content: "";
+  @include propsElement($white_Two_color, null, 100%, 1px);
+  @include movePosition(absolute, "left", "bottom", 0, 10px);
+}
+
+section.skills li {
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 6px;
+  margin-right: 10px;
+  margin-bottom: 25px;
+}
+/* end skills  */
+
+/* start activities */
+
+section.activities {
+  width: 100%;
+  position: relative;
+  margin-right: 20px;
+  @include mobileMedia {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    margin-bottom: 20px;
+  }
+}
+
+div.active {
+  position: relative;
+  @include mediaChoosen("max-width: 992px") {
+    flex-direction: column;
+    padding-bottom: 100px;
+  }
+}
+
+div.datas {
+  @include mobileMedia {
+    margin-left: -70px;
+  }
+}
+
+div.active:not(:last-of-type)::after {
+  content: "";
+  @include propsElement($white_Two_color, null, 100%, 1px);
+  @include movePosition(absolute, "left", "bottom", 0, 0);
+}
+
+ul.time {
+  position: absolute;
+  right: 20px;
+  text-align: right;
+  @include mobileMedia {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 20px;
+    text-align: center;
+  }
+}
+
+div.active ul:first-of-type li:first-of-type {
+  @include mediaChoosen("max-width: 992px") {
+    text-align: center;
+    padding: 20px 0;
+  }
+}
+
+ul.time li:first-of-type {
+  font-weight: 600;
+}
+
+section.activities img {
+  width: 60px;
+}
+/* end activities */

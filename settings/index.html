@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/framework.css">
+    <link rel="shortcut icon" href="../static/gear.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/sass/pages/settings.css">
+    <title>Settings</title>
+</head>
+<body>
+    <main class="d-flex">
+        <!-- start aside -->
+        <aside>
+            <h1>AboAlwafa</h1>
+            <ul>
+                <li><a href="../home/index.html"><i class="fa-regular fa-chart-bar fa-fw"></i><p>Dashboard</p></a>
+                </li>
+                <li><a href="../settings/index.html"><i class="fa-solid fa-gear fa-fw"></i><p>Settings</p></a>
+                </li>
+                <li><a href="../profile/index.html"><i class="fa-regular fa-user fa-fw""></i><p>Profile</p></a></li>
+<li><a href="../projects/index.html"><i class="fa-solid fa-diagram-project fa-fw"></i><p>Projects</p></a>
+                </li>
+                <li><a href="../courses/index.html"><i class="fa-solid fa-graduation-cap fa-fw"></i><p>Courses</p></a>
+                </li>
+                <li><a href="../friends/index.html"><i class="fa-regular fa-circle-user fa-fw"></i><p>Friends</p></a>
+                </li>
+                <li><a href="../files/index.html"><i class="fa-regular fa-file fa-fw"></i><p>Files</p></a>
+                </li>
+                <li><a href="../plans/index.html"><i class="fa-regular fa-credit-card fa-fw"></i><p>Plans</p></a>
+                </li>
+            </ul>
+        </aside>
+        <!-- end aside -->
+        <section class="allsections">
+            <!-- start nav -->
+            <nav class="d-flex space-between p-relative bg-light pt-20 pb-20">
+                    <form class="d-flex align-center border-r-10">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input class="ps-10" type="search" placeholder="Type A Keyword">
+                    </form>
+                    <div class="acc d-flex align-center">
+                        <i class="fa-regular fa-bell fa-lg"></i>
+                        <img src="../static/avatar.png">
+                    </div>
+            </nav>
+            <!-- end nav -->
+            <div class="container">
+                <h1 class="dash">Settings</h1>
+            </div>
+            <!-- start global sections -->
+            <div class="all">
+            <!-- start control -->
+                <section class="control bg-light border-r-10 pb-20 pt-10">
+                    <div class="container">
+                    <h1 class="fs-25 text-sm-center">Site Control</h1>
+                    <p class="text-gray pt-10 fs-15">Control The Website If There Is Maintenance</p>
+                    <div class="d-flex space-between">
+                    <ul class="pt-20">
+                        <li class="pb-5">Website Control</li>
+                        <li class="text-gray fs-15">Open/Close Website And Type The Reason</li>
+                    </ul>
+                    <input type="checkbox" class="toggle mt-20" >
+                    </div>
+                    <textarea class="border-r-10 pt-10 ps-10" placeholder="Close Message Content"></textarea>
+                </section>
+            <!-- end control -->
+
+            <!-- start genral -->
+            <section class="genral bg-light border-r-10 pb-20 pt-10">
+                <div class="container">
+                <h1 class="fs-25 text-sm-center">General Info</h1>
+                <p class="fs-15 text-gray pt-10">General Information About Your Account</p>
+                <form class="pt-20">
+                    <label class="text-gray">First Name</label><br>
+                    <input class="mt-10" type="text" placeholder="First Name"><br><br>
+                    <label class="text-gray">Last Name</label><br>
+                    <input class="mt-10" type="text" placeholder="Last Name"><br><br>
+                    <label class="text-gray">Email</label><br>
+                    <div class="d-flex align-center">
+                    <input class="mt-10" type="text" disabled placeholder="112mahmoudsayed@gmail.com">
+                    <a class="ps-20 text-blue" href="#">Change</a>
+                </div>
+                </form>
+                </section>
+                <!-- end genral -->
+
+                <!-- start security -->
+            <section class="security bg-light border-r-10 pt-10">
+                <div class="container">
+                <h1 class="fs-25 text-sm-center">Security Info</h1>
+                <p class="fs-15 text-gray pt-10">Security Information About Your Account</p>
+                <div class="d-flex space-between pb-20 p-relative">
+                <ul class="pt-20">
+                    <li class="pb-5">Password</li>
+                    <li class="text-gray fs-15">Last Change On 25/10/2021</li>
+                </ul>
+                <a class="bg-info change" href="#">Change</a>
+                </div>
+                <div class="d-flex pt-20 pb-20 p-relative space-between">
+                    <ul>
+                        <li class="pb-5">Two-Factor Authentication</li>
+                        <li class="fs-15 text-gray">Enable/Disable The Feature</li>
+                    </ul>
+                    <input class="toggle" type="checkbox">
+                </div>
+                <div class="d-flex space-between pt-20">
+                    <ul>
+                        <li class="pb-5 device">Devices</li>
+                        <li class="text-gray fs-15">Check The Login Devices List</li>
+                    </ul>
+                    <a class="devices" href="#">Devices</a>
+                </div>
+                </div>
+            </section>
+                <!-- end security -->
+
+                <!-- start social info -->
+                <section class="social bg-light pb-20">
+                    <div class="container">
+                    <h1 class="fs-25 pt-10 text-sm-center">Social Info</h1>
+                    <p class="pt-10 fs-15 text-gray">Social Media Information</p>
+                    <form><i class="fa-brands fa-twitter center-flex c-grey"></i> <input type="text" placeholder="Twitter Username"></form>
+                    <form > <i class="fa-brands fa-facebook-f center-flex c-grey"></i> <input type="text" placeholder="Facebook Username"></form>
+                    <form><i class="fa-brands fa-linkedin center-flex c-grey"></i> <input type="text" placeholder="Linkedin Username"></form>
+                    <form><i class="fa-brands fa-youtube center-flex c-grey"></i> <input type="text" placeholder="Youtube Username"></form>
+                    </div>
+                </section>
+                <!-- end social info -->
+
+                <!-- start Widgets Control -->
+                <section class="widgets bg-light border-r-10 pb-20">
+                    <div class="container">
+                    <h1 class="fs-25 pt-10 text-sm-center">Widgets Control</h1>
+                    <p class="pt-10 text-gray">Show/Hide Widgets</p>
+                    <form class="pt-20">
+                        <input id="draft" type="checkbox" checked>
+                        <label for="draft" class="ps-10">Quick Draft</label><br><br>
+                        <input type="checkbox" id="targets" checked>
+                        <label for="targets" class="ps-10">Yearly Targets</label><br><br>
+                        <input type="checkbox">
+                        <label class="ps-10">Tickets Statistics</label><br><br>
+                        <input type="checkbox" checked>
+                        <label class="ps-10">Latest News</label><br><br>
+                        <input type="checkbox" checked>
+                        <label class="ps-10">Latest Tasks</label><br><br>
+                        <input type="checkbox" checked>
+                        <label class="ps-10">Top Search Items</label>
+                    </form>
+                    </div>
+                </section>
+                <!-- end Widgets Control -->
+
+                <!-- start Backup Manager -->
+                <section class="backup bg-light pt-10 border-r-10">
+                    <div class="container">
+                    <h1 class="fs-25 text-sm-center">Backup Manager</h1>
+                    <p class="text-gray pt-10">Control Backup Time And Location</p>
+                   <form>
+                    <div class="pt-20 d-flex align-center pb-20">
+                        <input type="radio" id="daily" name="radio" value="radio">
+                        <label class="ps-10" for="daily">Daily</label>
+                    </div>
+                        <div class="d-flex align-center pb-20">
+                        <input type="radio" id="Weekly" checked name="radio" value="radio">
+                        <label class="ps-10" for="Weekly">Weekly</label>
+                        </div>
+                        <div class="d-flex align-center pb-20">
+                        <input type="radio" id="Monthly" name="radio" value="radio">
+                        <label class="ps-10" for="Monthly">Monthly</label>
+                        </div>
+                        <div class="Mega">
+                                <form>
+                                <label class="p-relative" for="Megaman">Megaman
+                                <i class="fa-solid fa-server d-block pt-20 pb-10"></i>
+                                <input type="radio" name="check" value="check" id="Megaman">
+                                </label>
+                                <label for="aboalwafa" class="p-relative"> AboAlwafa
+                                <i class="fa-solid fa-server d-block pt-20 pb-10"></i>
+                                <input type="radio" name="check" value="check" checked id="aboalwafa">
+                                </label>
+                                <label class="p-relative" for="sigma"> Sigma
+                                <i class="fa-solid fa-server d-block pt-20 pb-10"></i>
+                                <input type="radio" name="check" value="check" id="sigma">
+                                </label>
+                            </form>
+                            </div>
+                </div>
+                </section>
+                <!-- end Backup Manager -->
+            </section>
+                </div>
+</body>
+</html>

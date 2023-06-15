@@ -1,0 +1,167 @@
+aside li:nth-child(6),
+aside li:hover {
+  background-color: #f6f6f6;
+  border-radius: 5px;
+}
+
+/* end aside */
+@media (max-width: 767px) {
+  section.allsections {
+    width: calc(100% - 70px);
+  }
+}
+
+div.profiles {
+  padding: 20px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 767px) {
+  div.profiles {
+    padding: 20px 10px;
+  }
+}
+
+/* start nav */
+nav form {
+  border: solid 1px #ccc;
+  padding: 10px;
+}
+
+nav input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 120px;
+  transition: 0.5s;
+}
+
+nav input:focus::-moz-placeholder {
+  opacity: 0;
+}
+
+nav input:focus::placeholder {
+  opacity: 0;
+}
+
+nav input:focus {
+  width: 180px;
+}
+
+div.acc i {
+  padding-right: 20px;
+  position: relative;
+}
+
+div.acc i::after {
+  content: "";
+  border-radius: 50%;
+  background-color: #f44336;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: 13px;
+  top: -16px;
+}
+
+div.acc img {
+  width: 30px;
+}
+
+/* end nav */
+h1.dash {
+  font-size: 40px;
+  padding-top: 20px;
+  position: relative;
+}
+
+h1.dash::after {
+  content: "";
+  background-color: white;
+  width: 140px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}
+
+h1.dash::before {
+  content: "";
+  z-index: 1;
+  background-color: black;
+  width: 40px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}
+
+/* start profiles */
+div.icons {
+  margin-left: -20px;
+}
+
+@media (max-width: 767px) {
+  div.icons {
+    margin-left: -10px;
+  }
+}
+
+div.icons i {
+  border-radius: 50%;
+  font-size: 13px;
+  padding: 10px;
+  transition: 0.3s;
+  background-color: #eee;
+  color: #666;
+}
+
+div.icons i:hover {
+  background-color: #0075ff;
+  color: white;
+}
+
+div.image {
+  justify-content: center;
+}
+
+div.image img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+div.profiles ul {
+  text-align: center;
+}
+
+div.profiles li:first-of-type {
+  font-weight: bold;
+}
+
+div.profiles li:last-of-type {
+  font-size: 13px;
+}
+
+div.bo {
+  border-top: #ddd 1px solid;
+}
+
+div.bo3 {
+  border-bottom: 1px solid #ddd;
+}
+
+div.joined p {
+  font-size: 13px;
+}
+
+div.btns a {
+  font-size: 14px;
+  padding: 3px 7px;
+}
+
+div.btns a:last-of-type {
+  background-color: #f44336;
+}
+
+/* end profiles *//*# sourceMappingURL=friends.css.map */

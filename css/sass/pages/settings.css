@@ -1,0 +1,251 @@
+aside li:nth-child(2),
+aside li:hover {
+  background-color: #f6f6f6;
+  border-radius: 5px;
+}
+
+/* start settings */
+div.all {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  margin: 30px 20px 0 20px;
+  gap: 20px;
+}
+@media (max-width: 767px) {
+  div.all {
+    margin: 30px 10px 0 10px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* end settings */
+/* start control */
+.toggle {
+  background-color: #0075ff;
+  width: 80px;
+  height: 30px;
+  border-radius: 35px;
+  cursor: pointer;
+  position: relative;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  transition: 0.3s;
+}
+
+.toggle:checked {
+  background-color: #ccc;
+  transition: 0.3s;
+}
+
+.toggle::after {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.toggle:checked:after {
+  content: "\f00d";
+  right: calc(50% + 10px);
+}
+
+section.control textarea {
+  display: block;
+  resize: none;
+  width: 100%;
+  height: 150px;
+  margin-top: 30PX;
+  border: solid 1px #ccc;
+  outline: none;
+}
+
+section.genral input {
+  padding: 10px;
+  outline: none;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+section.genral input:nth-child(1) {
+  color: rgb(187, 187, 187);
+  background-color: rgb(240, 244, 248);
+  cursor: no-drop;
+}
+
+@media (max-width: 768px) {
+  section.control p, section.control li:last-of-type {
+    font-size: 13px;
+  }
+}
+/* end control */
+/* start security */
+section.security a.change {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  height: 30px;
+}
+
+section.security div:nth-child(3)::after, section.security div:nth-child(4)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+section.security a.devices {
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+section.security div:last-of-type {
+  padding-bottom: 30px;
+}
+
+a.devices {
+  height: 30px;
+}
+
+/* end security */
+/* start Widgets Control */
+section.widgets input[type=checkbox] {
+  width: 15px;
+  height: 15px;
+}
+
+section.widgets input[type=checkbox]:checked {
+  background-color: #0075ff;
+}
+
+/* end Widgets Control */
+/* start social info */
+section.social form {
+  border: solid 1px #ddd;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f6f6f6;
+  position: relative;
+  border-radius: 5px;
+}
+
+section.social input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding-left: 10px;
+}
+
+section.social i {
+  position: relative;
+  width: 20px;
+  color: var(--color-grey);
+}
+
+section.social form:focus-within i {
+  color: black;
+}
+
+section.social i::after {
+  content: "";
+  background-color: #ddd;
+  width: 1px;
+  height: 235%;
+  position: absolute;
+  right: -5px;
+  top: -10px;
+}
+
+/* end social info */
+/* start Backup Manager */
+section.backup, section.widgets {
+  margin-bottom: 20px;
+}
+
+section.backup input {
+  width: 20px;
+  height: 20px;
+}
+
+div.Mega {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  margin-top: 30px;
+  position: relative;
+}
+
+div.Mega::after {
+  content: "";
+  background-color: #ddd;
+  width: 100%;
+  height: 1px;
+  top: -25px;
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  div.Mega {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+div.Mega label {
+  text-align: center;
+  border: #eee 2px solid;
+  padding: 20px 40px;
+  height: 100px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+div.Mega input::after {
+  content: "";
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+div.Mega i {
+  display: block;
+}
+
+div.Mega input[type=radio] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+div.Mega input[type=radio]::after {
+  border: solid var(--color-blue) 1px;
+  display: none;
+}
+
+div.Mega input[type=radio]:checked::after {
+  display: block;
+}
+
+div.Mega div:hover {
+  border: solid 2px var(--color-blue);
+}
+
+/* end Backup Manager *//*# sourceMappingURL=settings.css.map */

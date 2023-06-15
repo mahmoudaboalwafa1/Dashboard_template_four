@@ -1,0 +1,168 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+
+@include navLinkNow(nth-child(7));
+
+div.file {
+  padding: 10px;
+}
+
+div.alls {
+  display: flex;
+
+  @include mediaChoosen("max-width: 768px") {
+    flex-direction: column-reverse;
+  }
+}
+
+div.fil {
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+div.allfiles {
+  @include grid(200px, 20px, null);
+  width: 100%;
+  padding: 20px;
+}
+
+div.file p:not(div.fil p) {
+  font-size: 14px;
+}
+
+div.file i {
+  display: block;
+}
+
+div.file img {
+  width: 60px;
+  margin-top: -20px;
+}
+
+div.file ul::before {
+  content: "";
+  @include propsElement(#ddd, null, 100%, 1px);
+  @include movePosition(absolute, "left", "top", 0, -10px);
+}
+
+div.file li {
+  font-size: 13px;
+}
+
+.size {
+  padding: 0;
+}
+
+div.statics {
+  flex-basis: 340px;
+  margin-right: 20px;
+  margin-top: 20px;
+  height: 420px;
+  padding-bottom: 30px;
+}
+
+div.stat {
+  border: solid 1px #eee;
+  padding: 10px 10px;
+  margin: 15px 0;
+  border-radius: 6px;
+}
+
+div.stat i {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes up {
+  0%,
+  100% {
+    padding-top: 0px;
+  }
+
+  50% {
+    padding-top: 10px;
+  }
+}
+
+div.stat i:hover {
+  animation: up 0.3s linear infinite;
+}
+
+div.stat i.blue {
+  background-color: rgb(0 117 255 / 20%);
+}
+
+div.stat i.green {
+  background-color: rgb(34 197 94 / 20%);
+}
+
+div.stat i.red {
+  background-color: rgb(244 67 54 / 20%);
+}
+
+div.stat i.orange {
+  background-color: rgb(245 158 11 / 20%);
+}
+
+div.stat li {
+  font-size: 13px;
+}
+
+div.stat li:not(:last-of-type) {
+  padding-bottom: 10px;
+}
+
+div.stat span {
+  margin-left: auto;
+  font-size: 13px;
+}
+
+div.statics a {
+  text-align: center;
+  margin: 0 auto;
+  @include flex(center, center);
+  width: 100px;
+  height: 30px;
+  font-size: 13px;
+}
+
+div.statics a:hover i.up {
+  animation: up 0.6s linear infinite;
+}
+
+@keyframes up {
+  0%,
+  100% {
+    padding-top: 0px;
+  }
+
+  50% {
+    padding-bottom: 5px;
+  }
+}
+
+div.files {
+  height: 200px;
+}
+
+@media (max-width: 768px) {
+  div.allfiles,
+  div.statics {
+    margin: 0 20px;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  div.statics {
+    padding-bottom: 20px;
+    margin-top: 10px;
+  }
+
+  div.allfiles {
+    width: calc(100% - 40px);
+  }
+}
