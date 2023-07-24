@@ -1,0 +1,48 @@
+const profileSettingsData = [
+  {
+    id: 0,
+    title: "General Information",
+    titleTwo: "Full Name: ",
+    textOne: "User",
+    titleThree: "Gendar: ",
+    textTwo: "Male",
+    titleFour: "Country: ",
+    textThree: "Egypt",
+    checked: false,
+  },
+  {
+    id: 1,
+    title: "Personal Information",
+    titleTwo: "Email: ",
+    textOne: "userName@email.com",
+    titleThree: "Phone: ",
+    textTwo: "01285817158",
+    titleFour: "Date Of Birth:",
+    textThree: "24/9/2002",
+    checked: true,
+  },
+  {
+    id: 2,
+    title: "Job Information",
+    titleTwo: "Title: ",
+    textOne: "Full Stack Developer",
+    titleThree: "Programming Language: ",
+    textTwo: "JavaScript",
+    titleFour: "Years Of Experience: ",
+    textThree: "5+",
+    checked: false,
+  },
+  {
+    id: 3,
+    title: "Billing Information",
+    titleTwo: "Payment Method: ",
+    textOne: "Paypal",
+    titleThree: "Email: ",
+    textTwo: "112mahmoudsayed@gmail.com",
+    titleFour: "Subscription: ",
+    textThree: "Monthly",
+    checked: true,
+  },
+];
+
+export default profileSettingsData;

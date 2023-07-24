@@ -1,0 +1,395 @@
+/* start profile */
+section.profile {
+  margin: 40px 20px 0 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  section.profile {
+    margin: 30px 10px 0 10px;
+  }
+}
+
+section.profile p:first-of-type {
+  font-weight: bold;
+}
+
+section.profile img {
+  width: 150px;
+  padding-top: 100px;
+  padding-left: 30px;
+}
+
+div.stars::before,
+div.stars::after {
+  content: "";
+  transform: translate(-50%);
+  border-radius: 10px;
+  background-color: #d4d4d4;
+  width: 150px;
+  height: 5px;
+  position: absolute;
+  left: calc(50% - 30px);
+  top: 20px;
+}
+
+div.stars::after {
+  left: calc(50% - 54px);
+  background-color: #0075ff;
+  width: 100px;
+}
+
+section.profile i {
+  color: var(--color-orange);
+  padding-top: 40px;
+}
+
+p.rate {
+  font-size: 13px;
+}
+
+ul.details,
+ul.details_dark {
+  padding-bottom: 50px;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+ul.details_dark {
+  color: white;
+}
+
+ul.details:hover::after,
+ul.details_dark:hover::after {
+  content: "";
+  z-index: -5;
+  background-color: #d4d4d4;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: -10px;
+  bottom: 25px;
+}
+
+ul.details:not(:last-of-type)::before,
+ul.details_dark:not(:last-of-type)::before {
+  content: "";
+  background-color: #ddd;
+  width: calc(100% - 80px);
+  height: 1px;
+  position: absolute;
+  left: -10px;
+  bottom: 25px;
+}
+
+@media (max-width: 768px) {
+  ul.details,
+  ul.details_dark {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  ul.details:not(:last-of-type)::before,
+  ul.details_dark:not(:last-of-type)::before {
+    left: 25px;
+  }
+}
+ul.details:last-of-type,
+ul.details_dark:last-of-type {
+  padding-bottom: 20px;
+}
+
+div.prof {
+  margin: 0 45px;
+  padding: 0 auto;
+  position: relative;
+}
+@media (max-width: 767px) {
+  div.prof {
+    margin-top: -90px;
+    padding-bottom: 50px;
+  }
+}
+
+div.prof::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 50px;
+  background-color: #ddd;
+  width: 1px;
+  height: calc(100% - 150px);
+  position: absolute;
+  right: -20px;
+  top: 50px;
+}
+@media (max-width: 850px) {
+  div.prof::after {
+    display: none;
+  }
+}
+
+ul.details span {
+  color: black;
+}
+
+div.info {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
+@media (max-width: 850px) {
+  div.info {
+    display: block;
+  }
+}
+@media (min-width: 851px) and (max-width: 1340px) {
+  div.info {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}
+@media (min-width: 993px) and (max-width: 1340px) {
+  div.info div.info div.full,
+  div.info div.info div.gendar,
+  div.info div.country {
+    flex-basis: 50%;
+  }
+}
+div.info li {
+  padding-right: 70px;
+}
+@media (max-width: 767px) {
+  div.info li {
+    padding-right: 0;
+  }
+}
+
+div.full,
+div.gendar,
+div.country {
+  font-size: 14px;
+}
+
+.hidden_info {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.hidden_info::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #d4d4d4;
+  position: absolute;
+  top: 2%;
+}
+
+.hidden_info::before {
+  content: "";
+  background-color: black;
+  width: 100%;
+  height: 12px;
+  position: absolute;
+  z-index: 1;
+  top: 18px;
+}
+
+@media (max-width: 768px) {
+  .hidden_info::after,
+  .hidden_info::before {
+    left: 0;
+  }
+}
+
+.toggle {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 35px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s;
+  margin-right: auto;
+  background-color: #ccc;
+  width: 90px;
+  height: 20px;
+}
+
+.toggle:checked {
+  background-color: #0075ff;
+  transition: 0.3s;
+}
+
+.toggle:after {
+  content: "\f00d";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  border-radius: 50%;
+  animation: before 0.3s forwards linear;
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes after {
+  0%,
+  50% {
+    left: 5px;
+  }
+  100% {
+    right: 5px;
+  }
+}
+@keyframes before {
+  0%,
+  50% {
+    right: 5px;
+  }
+  100% {
+    left: 5px;
+  }
+}
+.toggle:checked::after {
+  left: auto;
+  content: "\f00c";
+  animation: after 0.3s forwards linear;
+}
+
+@media (min-width: 993px) and (max-width: 1340px) {
+  .toggle {
+    margin-left: auto;
+    left: 40px;
+    transform: translateX(-50%);
+    margin-top: 30px;
+  }
+}
+@media (max-width: 850px) {
+  div.infor {
+    flex-direction: column;
+    font-size: 13px;
+  }
+}
+
+p.textt {
+  width: 200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 868px) {
+  .container_profile {
+    flex-direction: column;
+  }
+}
+/* end profile */
+/* start skills  */
+section.skills {
+  margin: 20px;
+}
+
+@media (max-width: 768px) {
+  section.skills {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 868px) {
+  .container_skills {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+li.skills_item,
+li.skills_item_dark {
+  background-color: #d4d4d4;
+  padding: 5px 10px;
+  border-radius: 6px;
+  margin-right: 10px;
+  margin-bottom: 25px;
+}
+
+li.skills_item_dark {
+  background-color: #222;
+}
+
+/* end skills  */
+/* start activities */
+section.activities {
+  position: relative;
+  margin: 20px;
+  padding-bottom: 20px;
+  flex: 1;
+}
+@media (max-width: 767px) {
+  section.activities {
+    margin: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+div.active {
+  position: relative;
+}
+@media (max-width: 992px) {
+  div.active {
+    flex-direction: column;
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  div.datas {
+    margin-left: -70px;
+  }
+}
+
+div.active:not(:last-of-type)::after {
+  content: "";
+  background-color: #ddd;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}
+
+ul.time {
+  position: absolute;
+  right: 20px;
+  text-align: right;
+}
+@media (max-width: 767px) {
+  ul.time {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 992px) {
+  div.active ul:first-of-type li:first-of-type {
+    text-align: center;
+    padding: 20px 0;
+  }
+}
+
+ul.time li:first-of-type {
+  font-weight: 600;
+}
+
+section.activities img {
+  width: 60px;
+}
+
+/* end activities */ /*# sourceMappingURL=profile.module.css.map */

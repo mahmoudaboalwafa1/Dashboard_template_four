@@ -1,0 +1,89 @@
+div.courses {
+  padding: 0 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  div.courses {
+    padding: 0 10px;
+  }
+}
+div.course {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+div.course img:not(img.team) {
+  width: 100%;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+div.courses p:not(p.peo) {
+  width: 300px;
+  max-width: 100%;
+  padding-bottom: 50px;
+  line-height: 1.8;
+}
+
+div.courses p.peo,
+div.courses i {
+  font-size: 13px;
+}
+
+img.team {
+  width: 60px;
+  z-index: 2;
+  border: solid 2px white;
+  border-radius: 50%;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+div.icons {
+  padding: 10px 0;
+}
+
+div.icons::before {
+  content: "";
+  background-color: #ddd;
+  width: calc(100% + 50px);
+  height: 1px;
+  position: absolute;
+  left: -25px;
+  top: -10px;
+}
+
+div.course input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+div.course label {
+  background-color: #0075ff;
+  color: white;
+  position: absolute;
+  left: 50%;
+  bottom: 33px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transform: translateX(-50%);
+  z-index: 1;
+  cursor: pointer;
+}
+
+div.course input:checked + label {
+  background-color: #22c55e;
+  color: #0d69d5;
+}
+
+/* end courses */ /*# sourceMappingURL=courses.module.css.map */

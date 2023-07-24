@@ -1,0 +1,88 @@
+/* end aside */
+@media (max-width: 767px) {
+  section.allsections {
+    width: calc(100% - 70px);
+  }
+}
+
+div.profiles {
+  padding: 20px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+@media (max-width: 767px) {
+  div.profiles {
+    padding: 20px 10px;
+  }
+}
+
+/* start profiles */
+div.icons {
+  margin-left: -20px;
+}
+
+@media (max-width: 767px) {
+  div.icons {
+    margin-left: -10px;
+  }
+}
+
+div.icons i {
+  border-radius: 50%;
+  font-size: 13px;
+  padding: 10px;
+  transition: 0.3s;
+  background-color: #d4d4d4;
+  color: #666;
+}
+
+div.icons i:hover {
+  background-color: #0075ff;
+  color: white;
+}
+
+div.image {
+  justify-content: center;
+}
+
+div.image img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+div.profiles ul {
+  text-align: center;
+}
+
+div.profiles li:first-of-type {
+  font-weight: bold;
+}
+
+div.profiles li:last-of-type {
+  font-size: 13px;
+}
+
+div.bo {
+  border-top: #ddd 1px solid;
+}
+
+div.bo3 {
+  border-bottom: 1px solid #ddd;
+}
+
+div.joined p {
+  font-size: 13px;
+}
+
+div.btns a {
+  font-size: 14px;
+  padding: 3px 7px;
+}
+
+div.btns a:last-of-type {
+  background-color: #f44336;
+}
+
+/* end profiles */ /*# sourceMappingURL=friends.module.css.map */

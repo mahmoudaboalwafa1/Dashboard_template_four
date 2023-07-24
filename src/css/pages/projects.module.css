@@ -1,0 +1,143 @@
+/* start Project */
+
+div.project:last-of-type {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 1075px) {
+  div.project:last-of-type,
+  div.project:nth-child(7) {
+    margin-bottom: 20px;
+  }
+}
+
+.texts {
+  font-size: 13px;
+}
+
+div.project ul {
+  justify-content: flex-end;
+}
+@media (max-width: 767px) {
+  div.project ul {
+    display: block;
+  }
+}
+div.project ul li {
+  background-color: #d4d4d4;
+  margin-left: 10px;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 13px;
+}
+@media (max-width: 767px) {
+  div.project ul li {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  div.prog {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+div.project ul::after {
+  content: "";
+  background-color: #ddd;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+}
+
+.images {
+  padding-bottom: 50px;
+}
+
+.images img {
+  width: 40px;
+  border-radius: 50%;
+  border: solid 2px white;
+  transition: 0.3s;
+}
+
+.images img:not(:first-of-type) {
+  margin-left: -10px;
+}
+
+.images img:hover {
+  z-index: 1;
+}
+
+div.images::after {
+  content: "";
+  background-color: #ddd;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  bottom: 25px;
+}
+
+div div.progress,
+div div.green {
+  background-color: #eee;
+  width: 250px;
+  height: 8px;
+  border-radius: 6px;
+  position: relative;
+}
+
+div.progress::after {
+  content: "";
+  height: 8px;
+  border-radius: 6px;
+  position: absolute;
+}
+
+div.red::after,
+div.red2::after {
+  background-color: #f44336;
+  width: 150px;
+}
+
+div.red2::after {
+  width: 100px;
+}
+
+div.prog > div {
+  background-color: #22c55e;
+  width: 200px;
+}
+
+div.green2::after {
+  width: 160px;
+}
+
+div.green3::after {
+  width: 180px;
+}
+
+div.green4::after {
+  width: 210px;
+}
+
+div.blue::after {
+  background-color: #0075ff;
+  width: 250px;
+}
+
+p.dollar::before {
+  content: "$";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: -15px;
+  color: #888;
+}
+
+/* end dollar */ /*# sourceMappingURL=projects.css.map */
