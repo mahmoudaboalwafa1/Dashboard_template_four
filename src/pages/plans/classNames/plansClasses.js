@@ -1,11 +1,11 @@
 import style from "../../../css/pages/plans.module.css";
 
 const PlansClasses = {
-  classOne: "d-flex space-between pb-10 pt-20",
-  classTwo: " fa-solid  fa-fw",
-  classThree: "fa-solid fa-circle-info",
-  classFour: " text-gray pt-20",
-  classFive: (color) => {
+  PlansContainer: `${style.detail_plan} d-flex space-between pb-10 pt-20`,
+  classPremissions: (premission) => `${premission} fa-solid fa-fw`,
+  classHelp: `${style.help} fa-solid fa-circle-info`,
+  textGray: " text-gray pt-20",
+  bgPlan: (color) => {
     return `${style.plen} ${
       color == "orange"
         ? style.orange
@@ -14,12 +14,12 @@ const PlansClasses = {
         : style.green
     } mb-20`;
   },
-  classSix: (btnColor, current, classFour) => {
-    return `${style.join}${classFour} ${current && style.current} ${
+  btnBg: (btnColor, current, textGray) => {
+    return `${style.join}${textGray} ${current && style.current} ${
       btnColor == "joino" ? style.joino : btnColor == "joing" ? style.joing : ""
     }`;
   },
-  classSeven: (bodyMode) => {
+  planDarkMode: (bodyMode) => {
     return bodyMode.includes("DarkMode") ? style.plan_dark : style.plan;
   },
 };

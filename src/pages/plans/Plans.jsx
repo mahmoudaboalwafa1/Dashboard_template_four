@@ -6,8 +6,9 @@ import { useSelector } from "react-redux";
 import PlansClasses from "./classNames/plansClasses";
 
 const Plans = () => {
-  const { classOne, classTwo, classThree, classFour } = PlansClasses;
-  const { classFive, classSix, classSeven } = PlansClasses;
+  const { PlansContainer, classPremissions, classHelp, textGray } =
+    PlansClasses;
+  const { bgPlan, btnBg, planDarkMode } = PlansClasses;
   const bodyMode = useSelector((state) => state.modeNow);
   return (
     <Collection MainTitle="Plans">
@@ -15,27 +16,24 @@ const Plans = () => {
         {PlansData.map((plan, index) => {
           const { name, price, access, join, current, color, btnColor } = plan;
           return (
-            <div key={index} className={classSeven(bodyMode)}>
-              <div className={classFive(color)}>
+            <div key={index} className={planDarkMode(bodyMode)}>
+              <div className={bgPlan(color)}>
                 <h1 className="pt-20">{name}</h1>
                 <h2 className="pb-20">{price}</h2>
               </div>
               {access.map((li, index) => {
                 const { text, premission } = li;
                 return (
-                  <div
-                    key={index}
-                    className={`${style.detail_plan} ${classOne}`}
-                  >
+                  <div key={index} className={PlansContainer}>
                     <span className="d-flex">
-                      <i className={`${premission}${classTwo}`}></i>
+                      <i className={classPremissions(premission)}></i>
                       <p className="ps-10">{text}</p>
                     </span>
-                    <i className={`${style.help} ${classThree}`}></i>
+                    <i className={classHelp}></i>
                   </div>
                 );
               })}
-              <p className={classSix(btnColor, current, classFour)}>{join}</p>
+              <p className={btnBg(btnColor, current, textGray)}>{join}</p>
             </div>
           );
         })}

@@ -63,11 +63,11 @@ div.plen h2 {
   font-size: 45px;
 }
 
-i.yes {
+.yes {
   color: #22c55e;
 }
 
-i.no {
+.no {
   color: #f44336;
 }
 
@@ -75,12 +75,12 @@ i.help {
   color: #888;
 }
 
-div.detail-plan {
+div.detail_plan {
   font-weight: 600;
   position: relative;
 }
 
-div.detail-plan::before {
+div.detail_plan::before {
   content: "";
   position: absolute;
   bottom: -5px;
@@ -94,7 +94,7 @@ p.current {
   font-weight: 600;
 }
 
-div.plan a:last-of-type {
+div.plan p.join:not(.current) {
   display: block;
   width: 50px;
   text-align: center;
@@ -102,10 +102,15 @@ div.plan a:last-of-type {
   margin-top: 20px;
   padding: 5px;
   border-radius: 6px;
+  color: white;
 }
 
-div.plan a.joing {
+div.plan p.joing {
   background-color: #22c55e;
+}
+
+div.plan p.joino {
+  background-color: #0075ff;
 }
 
 /* end Plans */ /*# sourceMappingURL=plans.module.css.map */
