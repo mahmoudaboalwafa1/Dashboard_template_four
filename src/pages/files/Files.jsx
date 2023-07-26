@@ -6,23 +6,23 @@ import FilesClasses from "./classNames/FilesClasses";
 import Static from "./Statics";
 
 const Files = () => {
-  const { classOne, classTwo, classThree } = FilesClasses;
-  const { classFour } = FilesClasses;
+  const { filesContainer, iconDownload, textGray } = FilesClasses;
+  const { spaceBetween } = FilesClasses;
   return (
     <Collection MainTitle="Files">
       <div className={style.allfiles}>
         {FilesData.map((file, index) => {
           const { ImgFile, text, creator, date, size } = file;
           return (
-            <div key={index} className={`${style.files} ${classOne}`}>
+            <div key={index} className={filesContainer}>
               <div className={style.file}>
-                <i className={classTwo}></i>
+                <i className={iconDownload}></i>
                 <div className={`${style.fil} d-flex`}>
                   <img className="pb-20" src={ImgFile} alt={text} />
                   <p>{text}</p>
                 </div>
-                <p className={classThree}>{creator}</p>
-                <ul className={`${size} ${classFour}`}>
+                <p className={textGray}>{creator}</p>
+                <ul className={`${size} ${spaceBetween}`}>
                   <li>{date}</li>
                   <li>{size}</li>
                 </ul>

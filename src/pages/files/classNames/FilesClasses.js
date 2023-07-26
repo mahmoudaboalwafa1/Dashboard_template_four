@@ -1,8 +1,10 @@
+import style from "../../../css/pages/files.module.css";
+
 const FilesClasses = {
-  classOne: "pt-20 bg-light border-r-10",
-  classTwo: "fa-solid fa-download text-gray",
-  classThree: "text-gray pt-20 pb-20",
-  classFour: "d-flex space-between text-gray p-relative",
+  filesContainer: `${style.files} pt-20 bg-light border-r-10`,
+  iconDownload: "fa-solid fa-download text-gray",
+  textGray: "text-gray pt-20 pb-20",
+  spaceBetween: "d-flex space-between text-gray p-relative",
 };
 
 export default FilesClasses;

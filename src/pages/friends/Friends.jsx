@@ -5,9 +5,9 @@ import style from "../../css/pages/friends.module.css";
 import FriendsClasses from "./classNames/FriendsClasses";
 
 const Friends = () => {
-  const { classOne, classTwo, classThree, classFour } = FriendsClasses;
-  const { classFive, classSix, classSeven, classEight } = FriendsClasses;
-  const { classNine, classTen, classEleven, classTwelve } = FriendsClasses;
+  const { profileBox, iconsBox, iconPhone, iconEmail } = FriendsClasses;
+  const { boxImg, iconSmile, iconCommit, iconNewspaper } = FriendsClasses;
+  const { boxControl, boxInfo, btnInfo, btnDanger } = FriendsClasses;
   return (
     <Collection MainTitle="Friends">
       <div className={`${style.profiles} pt-20`}>
@@ -15,13 +15,13 @@ const Friends = () => {
           const { friendImg, name, jop, friends } = friend;
           const { projects, articles, join } = friend;
           return (
-            <div key={index} className={`${style.profile} ${classOne}`}>
+            <div key={index} className={profileBox}>
               <div className="container">
-                <div className={`${style.icons} ${classTwo}`}>
-                  <i className={classThree}></i>
-                  <i className={classFour}></i>
+                <div className={iconsBox}>
+                  <i className={iconPhone}></i>
+                  <i className={iconEmail}></i>
                 </div>
-                <div className={`${style.image} ${classFive}`}>
+                <div className={boxImg}>
                   <img src={friendImg} alt={`friend-${index + 1}`} />
                 </div>
                 <ul className="pb-10">
@@ -29,26 +29,26 @@ const Friends = () => {
                   <li className="text-gray">{jop}</li>
                 </ul>
                 <div className={`${style.bo} pt-20`}>
-                  <i className={classSix}></i>
+                  <i className={iconSmile}></i>
                   <span className="ps-10">{friends}</span>
                 </div>
                 <div className="pt-10">
-                  <i className={classSeven}></i>
+                  <i className={iconCommit}></i>
                   <span className="ps-10">{projects}</span>
                 </div>
-                <div className={`${style.bo3} ${classNine}`}>
-                  <i className={classEight}></i>
+                <div className={boxInfo}>
+                  <i className={iconNewspaper}></i>
                   <span className="ps-10">{articles}</span>
                 </div>
-                <div className={`${style.control} ${classTen}`}>
+                <div className={boxControl}>
                   <div className={style.joined}>
                     <p className="text-gray">{join}</p>
                   </div>
                   <div className={style.btns}>
-                    <a className={classEleven} href="#">
+                    <a className={btnInfo} href="#">
                       Profile
                     </a>
-                    <a className={classTwelve} href="#">
+                    <a className={btnDanger} href="#">
                       Remove
                     </a>
                   </div>

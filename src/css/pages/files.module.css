@@ -2,11 +2,12 @@ div.file {
   padding: 10px;
 }
 
-div.alls {
-  display: flex;
+div.files {
+  align-items: baseline;
 }
 @media (max-width: 768px) {
-  div.alls {
+  .files {
+    padding-top: 20px;
     flex-direction: column-reverse;
   }
 }
@@ -61,7 +62,7 @@ div.statics {
   flex-basis: 340px;
   margin-right: 20px;
   margin-top: 20px;
-  height: 420px;
+  height: fit-content;
   padding-bottom: 30px;
 }
 

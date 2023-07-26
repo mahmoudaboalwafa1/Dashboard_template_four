@@ -1,34 +1,33 @@
 import React, { Fragment } from "react";
 import StatisticsData from "./data/StatisticsData";
-import style from "../../css/pages/files.module.css";
 import StaticClasses from "./classNames/StaticsClasses";
 
 const Static = () => {
-  const { classOne, classTwo, classThree, classFour } = StaticClasses;
-  const { classFive, classSix, classSeven } = StaticClasses;
+  const { staticsParent, titleStatics, staticBox, iconFile } = StaticClasses;
+  const { textGray, btnShape, arrowUp } = StaticClasses;
   return (
-    <div className={`${style.statics} ${classOne}`}>
+    <div className={staticsParent}>
       <div className="container">
-        <h3 className={classTwo}>Files Statistics</h3>
+        <h3 className={titleStatics}>Files Statistics</h3>
 
         {StatisticsData.map((stat, index) => {
-          const { fileImg, text } = stat;
+          const { fileImg, text, color } = stat;
           return (
             <Fragment key={index}>
-              <div className={`${style.stat} ${classThree}`}>
-                <i className={`${fileImg} ${classFour}`}></i>
+              <div className={staticBox}>
+                <i className={iconFile(fileImg, color)}></i>
                 <ul className="ps-20">
                   <li>{text}</li>
-                  <li className={classFive}>130</li>
+                  <li className={textGray}>130</li>
                 </ul>
-                <span className={classFive}>6.5GB</span>
+                <span className={textGray}>6.5GB</span>
               </div>
             </Fragment>
           );
         })}
-        <a className={classSix} href="#">
+        <a className={btnShape} href="#">
           {" "}
-          <i className={classSeven}></i>
+          <i className={arrowUp}></i>
           <p className="ps-10">Upload</p>
         </a>
       </div>
