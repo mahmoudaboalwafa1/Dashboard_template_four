@@ -5,33 +5,36 @@ import style from "../../css/pages/courses.module.css";
 import CoursesClasses from "./classNames/CoursesClasses";
 
 const Courses = () => {
-  const { classOne, classTwo, classThree } = CoursesClasses;
-  const { classFour, classFive, classSix, classSeven } = CoursesClasses;
+  const { courseContainer, courseParent } = CoursesClasses;
+  const { courseTitle, courseText, courseIcons } = CoursesClasses;
+  const { alignCenter, iconUser, textGray, iconDollar } = CoursesClasses;
   return (
     <Collection MainTitle="Courses">
-      <div className={`${style.courses} pt-10`}>
+      <div className={courseContainer}>
         {CoursesData.map((course, index) => {
           const { id, CourseImg, TeamImg } = course;
           const { text, title, people, price } = course;
           return (
-            <div key={id} className={`${style.course} bg-light`}>
+            <div key={id} className={courseParent}>
               <img className="p-relative" src={CourseImg} alt={id} />
               <img className={style.team} src={TeamImg} alt={`team${index}`} />
               <div className="container">
                 <div className={style.textcourse}>
-                  <h1 className={classOne}>{title}</h1>
-                  <p className={classTwo}>{text}</p>
+                  <h4 className={courseTitle}>{title}</h4>
+                  <p className={courseText}>{text}</p>
                 </div>
                 <input type="checkbox" id={id} />
                 <label htmlFor={id}>Course Info</label>
-                <div className={`${style.icons} ${classThree}`}>
-                  <div className={classFour}>
-                    <i className={classFive}>{people}</i>
-                    <p className={`${style.peo} ${classSix}`}></p>
+                <div className={courseIcons}>
+                  <div className={alignCenter}>
+                    <i className={iconUser}>
+                      <span className="ps-10">{people}</span>
+                    </i>
+                    <p className={textGray}></p>
                   </div>
-                  <div className={classFour}>
-                    <i className={classSeven}></i>
-                    <p className={`${style.peo} ${classSix}`}>{price}</p>
+                  <div className={alignCenter}>
+                    <i className={iconDollar}></i>
+                    <p className={textGray}>{price}</p>
                   </div>
                 </div>
               </div>

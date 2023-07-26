@@ -13,7 +13,6 @@ div.courses {
   }
 }
 div.course {
-  position: relative;
   overflow: hidden;
   border-radius: 6px;
   height: -moz-fit-content;
