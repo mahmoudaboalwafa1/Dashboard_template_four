@@ -7,13 +7,14 @@ import DatasProfileSettings from "./datasProfileSettings";
 import { useSelector } from "react-redux";
 
 const ProfileSettings = () => {
-  const { classOne, classTwo, classThree, classFour } = ProfileSettingsClasses;
+  const { sectionProfileSettings, classTwo, classThree, classFour } =
+    ProfileSettingsClasses;
   const { classFive, classSix } = ProfileSettingsClasses;
   const { stars, showUser } = ProfileSettingsDatas;
   const userInfo = useSelector((state) => state.userInfo);
 
   return (
-    <section className={classOne}>
+    <section className={sectionProfileSettings}>
       <div className="container">
         <div className={classTwo}>
           <div className={style.prof}>

@@ -1,7 +1,7 @@
 import style from "../../../css/pages/profile.module.css";
 
 const ProfileSettingsClasses = {
-  classOne: `${style.profile} bg-light pt-20 border-r-10`,
+  sectionProfileSettings: `${style.profile} bg-light pt-20 border-r-10`,
   classTwo: `${style.infor} d-flex`,
   classThree: `${style.textt} pt-10 ps-10`,
   classFour: "text-gray pt-10",
