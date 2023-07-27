@@ -6,8 +6,8 @@ import { UpdProfileSettings } from "../../../redux/actionMethod";
 import { useSelector, useDispatch } from "react-redux";
 
 const DatasProfileSettings = () => {
-  const { classSeven, classEight, classNine } = ProfileSettingsClasses;
-  const { classTen, classEleven } = ProfileSettingsClasses;
+  const { changeToDark, changeToCheck, textGrayTwo } = ProfileSettingsClasses;
+  const { changeToCheckTwo, changeToCheckThree } = ProfileSettingsClasses;
   const { oneTitle, inputProps } = ProfileSettingsDatas;
   const ProfileSettingsData = useSelector((state) => state.profileSettingsData);
   const bodyMode = useSelector((state) => state.modeNow);
@@ -22,22 +22,22 @@ const DatasProfileSettings = () => {
         const { title, textOne, titleTwo, textTwo } = setting;
         const { titleThree, textThree, titleFour, checked, id } = setting;
         return (
-          <ul key={index} className={classSeven(bodyMode)}>
+          <ul key={index} className={changeToDark(bodyMode)}>
             <p className="text-gray">{title}</p>
             <div className={style.info}>
-              <div className={classEight(checked)}>
-                <li className={classNine}>
+              <div className={changeToCheck(checked)}>
+                <li className={textGrayTwo}>
                   {titleTwo}
                   <span>{oneTitle(userInfo, textOne, id)}</span>
                 </li>
               </div>
-              <div className={classTen(checked)}>
+              <div className={changeToCheckTwo(checked)}>
                 <li className="pt-20 text-gray">
                   {titleThree}
                   <span>{textTwo}</span>
                 </li>
               </div>
-              <div className={classEleven(checked)}>
+              <div className={changeToCheckThree(checked)}>
                 <li className="pt-20 text-gray">
                   {titleFour}
                   <span>{textThree}</span>

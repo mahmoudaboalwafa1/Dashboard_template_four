@@ -7,26 +7,25 @@ import DatasProfileSettings from "./datasProfileSettings";
 import { useSelector } from "react-redux";
 
 const ProfileSettings = () => {
-  const { sectionProfileSettings, classTwo, classThree, classFour } =
-    ProfileSettingsClasses;
-  const { classFive, classSix } = ProfileSettingsClasses;
-  const { stars, showUser } = ProfileSettingsDatas;
+  const { sectionProfileSettings, infoContainer } = ProfileSettingsClasses;
+  const { rateBox, textUser, textGray } = ProfileSettingsClasses;
+  const { containerStars, stars, showUser } = ProfileSettingsDatas;
   const userInfo = useSelector((state) => state.userInfo);
 
   return (
     <section className={sectionProfileSettings}>
       <div className="container">
-        <div className={classTwo}>
+        <div className={infoContainer}>
           <div className={style.prof}>
             <img src={AvatarImg} alt="profile" />
-            <p className={classThree}>{showUser(userInfo)}</p>
-            <p className={classFour}>Level 20</p>
-            <div className={classFive}>
+            <p className={textUser}>{showUser(userInfo)}</p>
+            <p className={textGray}>Level 20</p>
+            <div className={containerStars}>
               {stars.map((star, i) => (
                 <i key={i} className={star}></i>
               ))}
             </div>
-            <p className={classSix}>550 Rating</p>
+            <p className={rateBox}>550 Rating</p>
           </div>
           <DatasProfileSettings />
         </div>

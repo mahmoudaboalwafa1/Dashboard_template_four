@@ -1,22 +1,19 @@
 import React from "react";
 import style from "../../../css/pages/profile.module.css";
 import ActivitesData from "../data/ActivitesData";
+import ActivitesClasses from "../classNames/ActivitesClasses";
 
 const Activities = () => {
+  const { sectionClass, titleActi, textActi, activBox } = ActivitesClasses;
   return (
-    <section className={`${style.activities} bg-light border-r-10 mb-20`}>
+    <section className={sectionClass}>
       <div className="container">
-        <h1 className="fs-25 pt-20 pb-10 text-sm-center">Latest Activities</h1>
-        <p className="text-gray text-sm-center">
-          Latest Activities Done By The User
-        </p>
+        <h1 className={titleActi}>Latest Activities</h1>
+        <p className={textActi}>Latest Activities Done By The User</p>
         {ActivitesData.map((active, index) => {
           const { img, alt, title, text, time, day } = active;
           return (
-            <div
-              key={index}
-              className={`${style.active} pt-20 d-flex align-center`}
-            >
+            <div key={index} className={activBox}>
               <img src={img} alt={alt} />
               <ul className="ps-20">
                 <li>{title}</li>

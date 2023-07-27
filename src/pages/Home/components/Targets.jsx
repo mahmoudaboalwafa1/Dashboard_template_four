@@ -1,19 +1,19 @@
 import React from "react";
 import style from "../../../css/pages/home.module.css";
-import { classesTargets } from "./classNames/HomeClassNames";
+import TargtesClasses from "./classNames/TargetsClasses";
 
 const Targets = () => {
   const {
-    sectionClass,
+    sectionTargets,
     textSmCenter,
     textGray,
     classFour,
     classFive,
     classSix,
     classSeven,
-  } = classesTargets;
+  } = TargtesClasses;
   return (
-    <section className={sectionClass}>
+    <section className={sectionTargets}>
       <div className="container">
         <h1 className={textSmCenter}>Yearly Targets</h1>
         <p className={textGray}>Targets Of The Year</p>
@@ -29,7 +29,7 @@ const Targets = () => {
             <span>80%</span>
           </div>
         </div>
-        <div className={`${style.projects} ${classFour}`}>
+        <div className={containerProjects}>
           <i className={classSix}></i>
           <div className={style.pro}>
             <p className="text-gray">Projects</p>
