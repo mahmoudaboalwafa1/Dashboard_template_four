@@ -1,25 +1,18 @@
 import React from "react";
 import style from "../../../css/pages/home.module.css";
-import TargtesClasses from "./classNames/TargetsClasses";
+import TargetsClassess from "./classNames/TargetsClasses";
 
 const Targets = () => {
-  const {
-    sectionTargets,
-    textSmCenter,
-    textGray,
-    classFour,
-    classFive,
-    classSix,
-    classSeven,
-  } = TargtesClasses;
+  const { sectionTargets, titleTagrets, textGray } = TargetsClassess;
+  const { containerProject, dollarIcon, codeIcon, userIcon } = TargetsClassess;
   return (
     <section className={sectionTargets}>
       <div className="container">
-        <h1 className={textSmCenter}>Yearly Targets</h1>
+        <h1 className={titleTagrets}>Yearly Targets</h1>
         <p className={textGray}>Targets Of The Year</p>
-        <div className={`${style.money} ${classFour}`}>
+        <div className={`${style.money} ${containerProject}`}>
           <div className={`${style.mon} d-flex`}>
-            <i className={classFive}></i>
+            <i className={dollarIcon}></i>
             <div>
               <p className="text-gray">Money</p>
               <h1>$20.000</h1>
@@ -29,8 +22,8 @@ const Targets = () => {
             <span>80%</span>
           </div>
         </div>
-        <div className={containerProjects}>
-          <i className={classSix}></i>
+        <div className={`${style.projects} ${containerProject}`}>
+          <i className={codeIcon}></i>
           <div className={style.pro}>
             <p className="text-gray">Projects</p>
             <h1>24</h1>
@@ -39,8 +32,8 @@ const Targets = () => {
         <div className={style.orange}>
           <span>55%</span>
         </div>
-        <div className={`${style.team} ${classFour}`}>
-          <i className={classSeven}></i>
+        <div className={`${style.team} ${containerProject}`}>
+          <i className={userIcon}></i>
           <div className={style.tem}>
             <p className="text-gray">Team</p>
             <h1>12</h1>
