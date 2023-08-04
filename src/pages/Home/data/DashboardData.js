@@ -1,18 +1,21 @@
 const DashboardData = [
-  { name: "User", text: "Developer" },
-  { title: "80", text: "Projects" },
-  { title: "$8500", text: "Earned" },
+  { id: 0, title: "User", text: "Developer" },
+  { id: 1, title: "0", text: "Projects" },
+  { id: 2, title: "$8500", text: "Earned" },
 ];
 
 const DashboardDataTwo = {
   lastName: (userInfo) =>
     userInfo[0].lastName ? userInfo[0].lastName : "User",
-  fullName: (userInfo, title, name) =>
-    title
+  titleWelcome: (userInfo, userAuth, title, projects, id) => {
+    return id != 0 && id == 1
+      ? projects.length
+      : id === 2
       ? title
-      : userInfo[0].firstName
-      ? userInfo[0].firstName + " " + userInfo[0].lastName
-      : name,
+      : userAuth
+      ? userAuth.displayName
+      : "username";
+  },
 };
 
 export { DashboardData, DashboardDataTwo };

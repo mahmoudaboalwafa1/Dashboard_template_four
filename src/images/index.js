@@ -1,8 +1,14 @@
+// Start Regestier
+import GoogleIcon from "./google.png";
+import GithubIcon from "./github.png";
+
+export { GoogleIcon, GithubIcon };
+
 // Start Home Images
 // Dashboard Section
 import WelcomeImg from "./welcome.png";
-import AvatarImg from "./avatar.png";
-export { WelcomeImg, AvatarImg };
+import UserImg from "./user.png";
+export { WelcomeImg, UserImg };
 // News Section
 import NewsOneImg from "./news-01.png";
 import NewsTwoImg from "./news-02.png";

@@ -7,7 +7,10 @@ import {
   HIDE_OR_SHOW_WIDGETS,
   SELECT_TASK,
   SEND_NOTIFICATIONS,
+  SET_DATA_GITHUB,
+  SET_PROJECTS_DATA,
   SET_SOCIAL_INFO,
+  SET_USER_AUTH,
   UPDATE_PROFILE_SETTING,
 } from "./actionType";
 
@@ -32,10 +35,7 @@ const mainReducer = (state = initialState, action) => {
     case ADD_TASK:
       return {
         ...state,
-        tasks: [
-          ...state.tasks,
-          { title: action.title, text: action.text, line: false },
-        ],
+        tasks: action.tasks,
       };
     case UPDATE_PROFILE_SETTING:
       return {
@@ -84,7 +84,15 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+    case SET_USER_AUTH:
+      return { ...state, user: (state.UserAuth.user = action.user) };
+    case SET_PROJECTS_DATA:
+      return {
+        ...state,
+        ProjectsData: (state.ProjectsData = action.projects),
+      };
   }
+
   return state;
 };
 

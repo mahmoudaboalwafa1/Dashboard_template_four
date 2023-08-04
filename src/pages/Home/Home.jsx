@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import Collection from "../../components/collection";
+import Collection from "../../components/Collection";
+import RequireAuth from "../Regiester/RequireAuth";
 import { useSelector } from "react-redux";
 
 import {
@@ -31,21 +32,26 @@ const Home = () => {
   ];
 
   return (
-    <Collection MainTitle="Dashboard" clients={<Clients />}>
-      <Dashboard />
-      {ShowHiddenWidgets.map((widget) => {
-        return (
-          widget.checked && (
-            <Fragment key={widget.index}> {components[widget.index]}</Fragment>
-          )
-        );
-      })}
-      <Upload />
-      <Project />
-      <Reminders />
-      <Post />
-      <Social />
-    </Collection>
+    <RequireAuth>
+      <Collection MainTitle="Dashboard" clients={<Clients />}>
+        <Dashboard />
+        {ShowHiddenWidgets.map((widget) => {
+          return (
+            widget.checked && (
+              <Fragment key={widget.index}>
+                {" "}
+                {components[widget.index]}
+              </Fragment>
+            )
+          );
+        })}
+        <Upload />
+        <Project />
+        <Reminders />
+        <Post />
+        <Social />
+      </Collection>
+    </RequireAuth>
   );
 };
 

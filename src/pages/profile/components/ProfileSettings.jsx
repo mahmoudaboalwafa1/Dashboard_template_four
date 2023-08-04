@@ -1,5 +1,5 @@
 import React from "react";
-import { AvatarImg } from "../../../images";
+import { UserImg } from "../../../images";
 import style from "../../../css/pages/profile.module.css";
 import ProfileSettingsClasses from "../classNames/ProfileSettingsClasses";
 import ProfileSettingsDatas from "../data/ProfileSettingsData";
@@ -10,15 +10,18 @@ const ProfileSettings = () => {
   const { sectionProfileSettings, infoContainer } = ProfileSettingsClasses;
   const { rateBox, textUser, textGray } = ProfileSettingsClasses;
   const { containerStars, stars, showUser } = ProfileSettingsDatas;
-  const userInfo = useSelector((state) => state.userInfo);
+  const userAuth = useSelector((state) => state.UserAuth.user);
 
   return (
     <section className={sectionProfileSettings}>
       <div className="container">
         <div className={infoContainer}>
           <div className={style.prof}>
-            <img src={AvatarImg} alt="profile" />
-            <p className={textUser}>{showUser(userInfo)}</p>
+            <img
+              src={userAuth.photoURL ? userAuth.photoURL : UserImg}
+              alt="profile"
+            />
+            <p className={textUser}>{showUser(userAuth)}</p>
             <p className={textGray}>Level 20</p>
             <div className={containerStars}>
               {stars.map((star, i) => (

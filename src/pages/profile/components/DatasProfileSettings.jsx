@@ -11,7 +11,7 @@ const DatasProfileSettings = () => {
   const { oneTitle, inputProps } = ProfileSettingsDatas;
   const ProfileSettingsData = useSelector((state) => state.profileSettingsData);
   const bodyMode = useSelector((state) => state.modeNow);
-  const userInfo = useSelector((state) => state.userInfo);
+  const userAuth = useSelector((state) => state.UserAuth.user);
   const dispatch = useDispatch();
   const handleCheckBox = (e, index) => {
     dispatch(UpdProfileSettings({ check: e.target.checked, id: index }));
@@ -28,7 +28,7 @@ const DatasProfileSettings = () => {
               <div className={changeToCheck(checked)}>
                 <li className={textGrayTwo}>
                   {titleTwo}
-                  <span>{oneTitle(userInfo, textOne, id)}</span>
+                  <span>{oneTitle(userAuth, textOne, id)}</span>
                 </li>
               </div>
               <div className={changeToCheckTwo(checked)}>

@@ -1,6 +1,6 @@
 import React from "react";
 import style from "../../../css/pages/home.module.css";
-import { AvatarImg } from "../../../images/index";
+import { UserImg } from "../../../images/index";
 import { classesPost } from "./classNames/HomeClassNames";
 import { useSelector } from "react-redux";
 
@@ -15,21 +15,18 @@ const Post = () => {
     classSeven,
     classEight,
   } = classesPost;
-  const userInfo = useSelector((state) => state.userInfo);
+  const userAuth = useSelector((state) => state.UserAuth.user);
+  const { displayName, photoURL } = userAuth;
   return (
     <section className={`${style.post} ${classOne}`}>
       <div className="container">
         <div className="text-sm-center">
-          <h1 className={`${style.center} fs-25`}>Latest Post</h1>
+          <h4 className={`${style.center} fs-25`}>Latest Post</h4>
         </div>
         <div className={`${style.posts} ${classTwo}`}>
-          <img src={AvatarImg} alt="profile" />
+          <img src={photoURL ? photoURL : UserImg} alt="profile" />
           <div className={`${style.posttext}  ps-20`}>
-            <h1>
-              {userInfo[0].firstName
-                ? `${userInfo[0].firstName} ${userInfo[0].lastName}`
-                : "userName"}
-            </h1>
+            <h4>{userAuth ? displayName : "userName"}</h4>
             <p className="text-gray">About 3 Hours Ago</p>
           </div>
         </div>

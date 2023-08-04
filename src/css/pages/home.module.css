@@ -163,16 +163,16 @@ section.targets i {
   height: 80px;
 }
 
-div.money i {
+div.money i.blue {
   background-color: rgba(0, 117, 255, 0.2);
 }
 
-div.projects i {
+div.projects i.orange {
   color: #f59e0b;
   background-color: rgba(245, 158, 11, 0.2);
 }
 
-div.team i {
+div.team i.green {
   background-color: rgba(34, 197, 94, 0.2);
   color: #22c55e;
 }
@@ -180,20 +180,16 @@ div.team i {
 div.blue,
 div.orange,
 div.green {
-  background-color: rgba(0, 117, 255, 0.2);
-  width: 100%;
-  height: 4px;
   position: relative;
-  left: -50px;
-  bottom: -15px;
-}
-
-div.orange,
-div.green {
   left: 100px;
   top: -10px;
   background-color: rgba(245, 158, 11, 0.2);
   width: calc(100% - 150px);
+  height: 4px;
+}
+
+div.blue {
+  background-color: rgba(0, 117, 255, 0.2);
 }
 
 div.green {
@@ -229,36 +225,28 @@ div.green span {
   border-radius: 6px;
   background-color: #0075ff;
   color: white;
-  width: nul;
   position: absolute;
   right: 16%;
   bottom: 15px;
-}
-@media (max-width: 767px) {
-  div.blue span,
-  div.orange span,
-  div.green span {
-    right: 10%;
-  }
 }
 
 div.orange span {
   background-color: #f59e0b;
   right: 41%;
 }
-@media (max-width: 767px) {
-  div.orange span {
-    right: 40%;
-  }
-}
 
 div.green span {
   background-color: #22c55e;
   right: 20%;
 }
+
 @media (max-width: 767px) {
   div.green span {
     right: 19%;
+  }
+
+  div.orange span {
+    right: 40%;
   }
 }
 
@@ -655,18 +643,18 @@ section.clients {
   }
 }
 @media (min-width: 1202px) {
-  section.clients {
+  .clients {
     overflow-x: visible;
   }
 }
 
-section.clients img {
+.clients img {
   width: 30px;
   border-radius: 50%;
   border: solid 2px white;
 }
 
-section.clients img:not(:first-of-type) {
+.clients img:not(:first-of-type) {
   margin-left: -18px;
 }
 
@@ -709,26 +697,7 @@ tbody:last-of-type::after {
   background-color: #222 !important;
 }
 
-tr th,
-tr td {
-  padding-left: 15px;
-}
-
-tr td:last-of-type {
-  border-right: 1px solid rgb(238, 238, 238);
-}
-
-tbody tr {
-  position: relative;
-}
-tbody tr td {
-  padding: 20px;
-  position: relative;
-  border-left: 1px solid rgb(238, 238, 238);
-}
-
-.clients_table:hover,
-.clients_table_dark:hover {
+:is(.clients_table, .clients_table_dark):hover {
   background-color: #d4d4d4;
   background-clip: content-box;
 }
@@ -737,34 +706,18 @@ tbody tr td {
   background-color: #222;
 }
 
-tr th:first-of-type,
-tr td:first-of-type {
-  width: 300px;
+:is(tbody, thead) tr {
+  display: flex;
 }
 
-tr th:nth-child(2),
-tr td:nth-child(2) {
-  width: 200px;
+:is(tbody tr, thead tr) :is(td, th) {
+  padding: 20px;
+  flex: 1;
+  text-align: center;
 }
 
-tr th:nth-child(3),
-tr td:nth-child(3) {
-  width: 300px;
-}
-
-tr th:nth-child(4),
-tr td:nth-child(4) {
-  width: 100px;
-}
-
-tr th:nth-child(5),
-tr td:nth-child(5) {
-  width: 205px;
-}
-
-tr th:nth-child(6),
-tr td:nth-child(6) {
-  width: 300px;
+tbody tr td {
+  border-left: 1px solid rgb(238, 238, 238);
 }
 
 /* end clients */ /*# sourceMappingURL=home.module.css.map */

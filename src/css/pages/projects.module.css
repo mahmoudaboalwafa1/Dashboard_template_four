@@ -15,9 +15,6 @@ div.project:last-of-type {
   font-size: 13px;
 }
 
-div.project ul {
-  justify-content: flex-end;
-}
 @media (max-width: 767px) {
   div.project ul {
     display: block;
@@ -52,6 +49,18 @@ div.project ul::after {
   height: 1px;
   position: absolute;
   bottom: 0;
+}
+
+.containerBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.containerBtns a {
+  border-radius: 6px;
+  margin-right: 10px;
+  padding: 10px 5px;
 }
 
 .images {

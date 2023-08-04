@@ -1,26 +1,33 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import AsideData from "./data/AsideData";
+import { AsideDataRegiester, AsideData } from "./data/AsideData";
 
 const Aside = () => {
-  const userInfo = useSelector((state) => state.userInfo);
+  const userAuth = useSelector((state) => state.UserAuth.user);
+  function loopOnLinks(aside) {
+    return aside.map((aside, index) => {
+      const { icon, text, to } = aside;
+      return (
+        <NavLink to={to} key={index}>
+          <li>
+            <i className={icon}></i>
+            <p>{text}</p>
+          </li>
+        </NavLink>
+      );
+    });
+  }
 
   return (
     <aside>
-      <h1>{userInfo[0].lastName ? userInfo[0].lastName : "User"}</h1>
+      <h3>
+        {userAuth?.displayName
+          ? userAuth.displayName.slice(userAuth.displayName.indexOf(" "))
+          : "Register"}
+      </h3>
       <ul>
-        {AsideData.map((aside, index) => {
-          const { icon, text, to } = aside;
-          return (
-            <NavLink to={to} key={index}>
-              <li>
-                <i className={icon}></i>
-                <p>{text}</p>
-              </li>
-            </NavLink>
-          );
-        })}
+        {userAuth ? loopOnLinks(AsideData) : loopOnLinks(AsideDataRegiester)}
       </ul>
     </aside>
   );

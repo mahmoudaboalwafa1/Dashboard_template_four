@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { setSocialInfo } from "../../../redux/actionMethod";
-import { ApiContext } from "../../../context/mainContext";
+import { ContextSocial } from "../../../context/SocialContext";
 import SocialSettingsClasses from "../classNames/SocialSettingsClasses";
 
 const SocialSettings = () => {
   const dispatch = useDispatch();
   const { twitterUser, facebookUser, linkedinUser, youtubeUser } =
-    useContext(ApiContext);
+    useContext(ContextSocial);
 
   const sendUserSocial = () => {
     if (

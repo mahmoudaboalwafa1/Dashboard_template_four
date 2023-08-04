@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../../css/pages/home.module.css";
+import styleTarget from "../../../css/pages/home.module.css";
 import TargetsClassess from "./classNames/TargetsClasses";
 
 const Targets = () => {
@@ -8,38 +8,36 @@ const Targets = () => {
   return (
     <section className={sectionTargets}>
       <div className="container">
-        <h1 className={titleTagrets}>Yearly Targets</h1>
+        <h4 className={titleTagrets}>Yearly Targets</h4>
         <p className={textGray}>Targets Of The Year</p>
-        <div className={`${style.money} ${containerProject}`}>
-          <div className={`${style.mon} d-flex`}>
-            <i className={dollarIcon}></i>
-            <div>
-              <p className="text-gray">Money</p>
-              <h1>$20.000</h1>
-            </div>
-          </div>
-          <div className={style.blue}>
-            <span>80%</span>
+        <div className={`${styleTarget.money} ${containerProject}`}>
+          <i className={dollarIcon}></i>
+          <div className={styleTarget.mon}>
+            <p className="text-gray">Money</p>
+            <h4>$20.000</h4>
           </div>
         </div>
-        <div className={`${style.projects} ${containerProject}`}>
+        <div className={styleTarget.blue}>
+          <span>80%</span>
+        </div>
+        <div className={`${styleTarget.projects} ${containerProject}`}>
           <i className={codeIcon}></i>
-          <div className={style.pro}>
+          <div className={styleTarget.pro}>
             <p className="text-gray">Projects</p>
-            <h1>24</h1>
+            <h4>24</h4>
           </div>
         </div>
-        <div className={style.orange}>
+        <div className={styleTarget.orange}>
           <span>55%</span>
         </div>
-        <div className={`${style.team} ${containerProject}`}>
+        <div className={`${styleTarget.team} ${containerProject}`}>
           <i className={userIcon}></i>
-          <div className={style.tem}>
+          <div className={styleTarget.tem}>
             <p className="text-gray">Team</p>
-            <h1>12</h1>
+            <h4>12</h4>
           </div>
         </div>
-        <div className={style.green}>
+        <div className={styleTarget.green}>
           <span>75%</span>
         </div>
       </div>

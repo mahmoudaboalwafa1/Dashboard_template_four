@@ -4,6 +4,8 @@ import userInfo from "./userInfo";
 import SocialInfo from "./socialInfo";
 import WidgetsData from "./widgetsData";
 import Notifications from "./Notifications";
+import UserAuth from "./userAuth";
+import ProjectsData from "./ProjectsData";
 
 const initialState = {
   profileSettingsData,
@@ -14,6 +16,8 @@ const initialState = {
   SocialInfo,
   WidgetsData,
   Notifications,
+  UserAuth,
+  ProjectsData,
 };
 
 export default initialState;

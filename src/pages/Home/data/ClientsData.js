@@ -9,10 +9,10 @@ import {
 const ClientsHead = [
   "Name",
   "Finish Date",
-  "Client",
-  "Price",
-  "Team",
-  "Status",
+  "Commits",
+  "Privacy",
+  "Branch",
+  "Size",
 ];
 
 const ClientsData = [

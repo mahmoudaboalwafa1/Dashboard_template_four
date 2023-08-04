@@ -14,14 +14,14 @@ aside {
   position: relative;
 }
 
-aside h1 {
+aside h3 {
   padding-bottom: 50px;
   padding-top: 20px;
   position: relative;
   font-size: 20px;
 }
 
-aside h1::after {
+aside h3::after {
   content: "";
   position: absolute;
   bottom: 25%;
@@ -32,7 +32,7 @@ aside h1::after {
   animation: line 0.5s linear forwards;
 }
 
-aside h1::before {
+aside h3::before {
   content: "";
   position: absolute;
   left: 13%;
@@ -46,12 +46,12 @@ aside h1::before {
   animation: circle 0.3s ease-in-out forwards;
 }
 
-body.dark aside h1::before {
+body.dark aside h3::before {
   border-color: black;
 }
 
-body.dark aside h1::before,
-body.dark aside h1::after {
+body.dark aside h3::before,
+body.dark aside h3::after {
   background-color: white !important;
 }
 
@@ -73,15 +73,15 @@ body.dark aside h1::after {
   }
 }
 @media (max-width: 768px) {
-  aside h1 {
+  aside h3 {
     font-size: 11px;
     padding: 20px 0;
     margin-left: -7px;
   }
-  aside h1::after {
+  aside h3::after {
     display: none;
   }
-  aside h1::before {
+  aside h3::before {
     display: none;
   }
 }
@@ -233,6 +233,23 @@ body.dark nav ul {
 
 div.acc img {
   width: 30px;
+  cursor: pointer;
+  position: relative;
+}
+
+.signout {
+  position: absolute;
+  right: 20px;
+  top: 85px;
+  background-color: white;
+  width: 70px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  z-index: 4;
+  cursor: pointer;
 }
 
 /* end nav */

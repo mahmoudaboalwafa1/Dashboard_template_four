@@ -8,19 +8,11 @@ const ProfileSettingsDatas = {
     "fa-solid fa-star",
     "fa-solid fa-star",
   ],
-  showUser: (userInfo) => {
-    return userInfo[0].firstName
-      ? `${userInfo[0].firstName} ${userInfo[0].lastName}`
-      : "UserName";
+  showUser: (userAuth) => {
+    return userAuth ? userAuth.displayName : "UserName";
   },
-  oneTitle: (userInfo, textOne, id) => {
-    return userInfo[0].firstName.length == ""
-      ? textOne
-      : id == 0
-      ? `${userInfo[0].firstName} ${userInfo[0].lastName}`
-      : id === 1
-      ? userInfo[0].email
-      : textOne;
+  oneTitle: (userAuth, textOne, id) => {
+    return id != 0 ? textOne : userAuth ? userAuth.displayName : textOne;
   },
   inputProps: {
     type: "checkbox",

@@ -1,12 +1,19 @@
-import React from "react";
-import { ClientsData, ClientsHead } from "../data/ClientsData";
+import React, { useContext } from "react";
+import { ClientsHead } from "../data/ClientsData";
 import { useSelector } from "react-redux";
 import ClientsClasses from "./classNames/ClientsClasses";
+import { DashboardContext } from "../../../context/DashboardContext";
 
 const Clients = () => {
   const bodyMode = useSelector((state) => state.modeNow);
-  const { sectionClass, mainTitle, thMode, tableMode, statusClass } =
-    ClientsClasses;
+  const projectsData = useSelector((state) => state.ProjectsData);
+  const { sectionClass, mainTitle, thMode, tableMode } = ClientsClasses;
+  const { commits } = useContext(DashboardContext);
+  const SizeInBytes = (size) => {
+    const sizeBytes = (size / 1024).toFixed(2);
+    return sizeBytes + "MB";
+  };
+
   return (
     <section className={sectionClass}>
       <div className="container">
@@ -23,29 +30,31 @@ const Clients = () => {
           </tr>
         </thead>
       </table>
-      {ClientsData.map((client, index) => {
-        const { tds, imgs, status } = client;
-        return (
-          <table className={tableMode(bodyMode)} key={index}>
-            <tbody>
-              <tr>
-                {tds.map((td) => (
-                  <td key={td}>{td}</td>
-                ))}
-
-                <td>
-                  {imgs.map((img, index) => (
-                    <img key={index} src={img.img} alt={img.alt} />
-                  ))}
-                </td>
-                <td className={statusClass(status)}>
-                  <p>{status}</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        );
-      })}
+      {projectsData.length > 0
+        ? projectsData.map((project, index) => {
+            const { id, default_branch, name, size, visibility, created_at } =
+              project;
+            const dateCreated = new Date(created_at).toLocaleDateString();
+            return (
+              <table className={tableMode(bodyMode)} key={id}>
+                <tbody>
+                  <tr>
+                    <td>{name}</td>
+                    <td style={{ direction: "rtl" }}>{dateCreated}</td>
+                    {commits != undefined &&
+                      commits.map(
+                        (commit, key) =>
+                          key === index && <td key={key}>{commit.length}</td>
+                      )}
+                    <td>{visibility}</td>
+                    <td>{default_branch}</td>
+                    <td>{SizeInBytes(size)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            );
+          })
+        : ""}
     </section>
   );
 };

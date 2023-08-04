@@ -5,7 +5,10 @@ import {
   DEl_TASK,
   HIDE_OR_SHOW_WIDGETS,
   SELECT_TASK,
+  SET_DATA_GITHUB,
+  SET_PROJECTS_DATA,
   SET_SOCIAL_INFO,
+  SET_USER_AUTH,
   UPDATE_PROFILE_SETTING,
 } from "./actionType";
 
@@ -22,11 +25,10 @@ const SelectTask = (taskSelection, index) => {
   };
 };
 
-const AddTask = (title, text) => {
+const AddTask = (tasks) => {
   return {
     type: ADD_TASK,
-    title: title,
-    text: text,
+    tasks,
   };
 };
 
@@ -69,7 +71,21 @@ const HideShowWidget = (check, index) => {
   };
 };
 
+// Action Method For Google User Auth
+const SetUserAuth = (user) => {
+  return {
+    type: SET_USER_AUTH,
+    user,
+  };
+};
+
+// Action Method Projects
+const SetProjectsData = (projects) => {
+  return { type: SET_PROJECTS_DATA, projects };
+};
+
 export {
+  SetProjectsData,
   DelTask,
   SelectTask,
   ChangeModeDispatch,
@@ -78,4 +94,5 @@ export {
   ChangeDataUser,
   setSocialInfo,
   HideShowWidget,
+  SetUserAuth,
 };

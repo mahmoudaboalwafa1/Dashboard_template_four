@@ -1,3 +1,11 @@
+// Regesiter
+import { default as Signin } from "./Regiester/Signin";
+import { default as Signup } from "./Regiester/Signup";
+import { default as Forget } from "./Regiester/Forget";
+import { default as Guest } from "./Regiester/Guest";
+
+export { Signin, Signup, Forget, Guest };
+
 // Page Home
 import { default as Home } from "./Home/Home";
 import { default as Dashboard } from "./Home/components/Dashboard";

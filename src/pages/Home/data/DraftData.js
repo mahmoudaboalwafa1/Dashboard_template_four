@@ -4,7 +4,8 @@ const handleSubmit = (
   setTitleDraft,
   setTextDraft,
   dispatch,
-  AddTask
+  AddTask,
+  setError
 ) => {
   if (titleDraft.value.length > 0 || textDraft.value.length > 0) {
     dispatch(AddTask(titleDraft.value, textDraft.value));

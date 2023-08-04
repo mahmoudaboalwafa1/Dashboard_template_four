@@ -11,4 +11,11 @@ const AsideData = [
   { icon: AsideClasses.creditIcon, text: "Plans", to: "/plans" },
 ];
 
-export default AsideData;
+const AsideDataRegiester = [
+  { icon: AsideClasses.userIcon, text: "Guest", to: "/guest" },
+  { icon: AsideClasses.chartIcon, text: "Signin", to: "/signin" },
+  { icon: AsideClasses.gearIcon, text: "Signup", to: "/signup" },
+  { icon: AsideClasses.userIcon, text: "Forget Password", to: "/forget" },
+];
+
+export { AsideData, AsideDataRegiester };

@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import style from "../../../css/pages/home.module.css";
-// Images Import
-import { WelcomeImg, AvatarImg } from "../../../images";
 import { DashboardData, DashboardDataTwo } from "../data/DashboardData";
 import DashboardClasses from "./classNames/DashboardClasses";
+import { DashboardContext } from "../../../context/DashboardContext";
+// Images Import
+import { WelcomeImg, UserImg } from "../../../images";
 
 const Dashboard = () => {
-  const bodyMode = useSelector((state) => state.modeNow);
-  const userInfo = useSelector((state) => state.userInfo);
-
   const { dashMode, padding, border, classOne } = DashboardClasses;
   const { alignCenter, btnShape, detailText } = DashboardClasses;
-  const { lastName, fullName } = DashboardDataTwo;
+  const { bodyMode, projectsData, userInfo, userAuth } =
+    useContext(DashboardContext);
+  const { lastName, titleWelcome } = DashboardDataTwo;
+
   return (
     <section className={style.dashboard}>
       <div className={dashMode(bodyMode, classOne)}>
@@ -23,14 +23,19 @@ const Dashboard = () => {
         </div>
         <img className={padding} src={WelcomeImg} />
       </div>
-      <img className={style.avatar} src={AvatarImg} />
+      <img
+        className={style.avatar}
+        src={userAuth.photoURL ? userAuth.photoURL : UserImg}
+      />
       <div className={border}>
         <div className={alignCenter}>
-          {DashboardData.map((dash, index) => {
-            const { title, name, text } = dash;
+          {DashboardData.map((dash) => {
+            const { title, text, id } = dash;
             return (
-              <div className={detailText} key={index}>
-                <h1>{fullName(userInfo, title, name)}</h1>
+              <div className={detailText} key={id}>
+                <h1>
+                  {titleWelcome(userInfo, userAuth, title, projectsData, id)}
+                </h1>
                 <p>{text}</p>
               </div>
             );
