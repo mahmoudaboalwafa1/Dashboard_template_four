@@ -36,8 +36,7 @@ const Draft = () => {
               setTitleDraft,
               setTextDraft,
               dispatch,
-              AddTask,
-              setError
+              AddTask
             )
           }
         >

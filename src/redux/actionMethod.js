@@ -28,7 +28,7 @@ const SelectTask = (taskSelection, index) => {
 const AddTask = (tasks) => {
   return {
     type: ADD_TASK,
-    tasks,
+    tasks: tasks,
   };
 };
 

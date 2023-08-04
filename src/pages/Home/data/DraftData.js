@@ -8,7 +8,9 @@ const handleSubmit = (
   setError
 ) => {
   if (titleDraft.value.length > 0 || textDraft.value.length > 0) {
-    dispatch(AddTask(titleDraft.value, textDraft.value));
+    dispatch(
+      AddTask({ title: titleDraft.value, text: textDraft.value, line: false })
+    );
     setTextDraft({ ...textDraft, value: "" });
     setTitleDraft({ ...titleDraft, value: "" });
     window.scrollBy({

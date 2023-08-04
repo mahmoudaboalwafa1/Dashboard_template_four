@@ -35,7 +35,7 @@ const mainReducer = (state = initialState, action) => {
     case ADD_TASK:
       return {
         ...state,
-        tasks: action.tasks,
+        tasks: [...state.tasks, action.tasks],
       };
     case UPDATE_PROFILE_SETTING:
       return {
