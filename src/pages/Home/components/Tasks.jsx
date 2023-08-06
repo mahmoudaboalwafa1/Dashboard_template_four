@@ -84,7 +84,7 @@ const Tasks = () => {
       <div className="container">
         <h1 className="fs-25 center">Latest Tasks</h1>
 
-        {allTasks.length > 0 ? (
+        {allTasks?.length > 0 ? (
           allTasks?.map((task, index) => {
             const { title, text, line } = task;
 

@@ -51,10 +51,18 @@ p.rate {
 
 ul.details,
 ul.details_dark {
+  width: 80%;
   padding-bottom: 50px;
   text-align: left;
   position: relative;
   z-index: 1;
+}
+
+@media (max-width: 992px) {
+  ul.details,
+  ul.details_dark {
+    width: 100%;
+  }
 }
 
 ul.details_dark {
@@ -131,14 +139,25 @@ div.prof::after {
   }
 }
 
-ul.details span {
-  color: black;
-}
-
 div.info {
   display: flex;
   flex-direction: row;
   white-space: nowrap;
+}
+
+div.info input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 150px;
+}
+
+body.dark .edit {
+  color: white;
+}
+
+.check {
+  color: #0075ff !important;
 }
 @media (max-width: 850px) {
   div.info {

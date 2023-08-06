@@ -29,7 +29,9 @@ const SigninProvider = ({ children }) => {
   }
 
   return (
-    <SigninContext.Provider value={{ SignWithGoogle, SignWithGithub, error }}>
+    <SigninContext.Provider
+      value={{ SignWithGoogle, SignWithGithub, error, setError }}
+    >
       {children}
     </SigninContext.Provider>
   );

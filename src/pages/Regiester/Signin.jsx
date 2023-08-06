@@ -24,6 +24,7 @@ const Signin = () => {
   }, [auth]);
 
   console.log(message);
+  console.log(error);
   return (
     <Collection MainTitle="Signin">
       {SigninData.map((btnSign) => {
@@ -46,7 +47,7 @@ const Signin = () => {
         );
       })}
       {message.length > 0 && <AlertSuccess message={message} />}
-      {error && <AlertError message={error} />}
+      {error != false && <AlertError message={error} />}
       <></>
     </Collection>
   );
