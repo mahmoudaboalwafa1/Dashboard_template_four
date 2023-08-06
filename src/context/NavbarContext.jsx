@@ -11,6 +11,7 @@ const ContextNavbarProvider = ({ children }) => {
   const dispatch = useDispatch();
   const modeBody = useSelector((state) => state.modeNow);
   const [mode, setMode] = useState(false);
+  const [message, setMessage] = useState("");
   const [showSignout, setShowSignout] = useState(false);
   const [keyWord] = useInput("", "search", "Type A Keyword");
   const userAuth = useSelector((state) => state.UserAuth.user);
@@ -22,16 +23,18 @@ const ContextNavbarProvider = ({ children }) => {
   const [showNotification, setShowNotification] = useState(false);
   const ShowNotificationArea = () => {
     userAuth && setShowNotification(!showNotification);
+    setShowSignout(false);
   };
 
   const handleSignOut = () => {
     dispatch(SetUserAuth(null));
-    signOut(auth).then(() => console.log("Signout"));
+    signOut(auth).then(() => setMessage("You have been logged out"));
     setShowSignout(false);
   };
 
   const handleShowSignout = () => {
     userAuth && setShowSignout(!showSignout);
+    setShowNotification(false);
   };
   modeBody === "DarkMode"
     ? (document.body.className = "dark")
@@ -48,6 +51,7 @@ const ContextNavbarProvider = ({ children }) => {
         handleShowSignout,
         handleSignOut,
         showSignout,
+        message,
       }}
     >
       {children}

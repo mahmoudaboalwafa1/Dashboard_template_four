@@ -211,13 +211,12 @@ nav ul {
   background-color: white;
   top: 78px;
   right: 20px;
-  height: 90px;
   border-radius: 6px;
   padding: 9px;
+  width: 300px;
   overflow-y: auto;
-  display: flex;
-  align-items: center;
   text-align: center;
+  margin-top: 3px;
 }
 
 body.dark nav ul {
@@ -250,6 +249,11 @@ div.acc img {
   border-radius: 6px;
   z-index: 4;
   cursor: pointer;
+}
+
+body.dark .signout {
+  background-color: #222;
+  color: white;
 }
 
 /* end nav */

@@ -19,7 +19,7 @@ const DashboardProvider = ({ children }) => {
   useEffect(() => {
     const getRepo = async () => {
       const octokit = new Octokit({
-        auth: "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",
+        auth: "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",
       });
       if (userAuth?.providerData[0]?.providerId === "github.com") {
         try {

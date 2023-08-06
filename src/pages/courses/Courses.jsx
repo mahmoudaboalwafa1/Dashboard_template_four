@@ -9,6 +9,7 @@ const Courses = () => {
   const { courseContainer, courseParent } = CoursesClasses;
   const { courseTitle, courseText, courseIcons } = CoursesClasses;
   const { alignCenter, iconUser, textGray, iconDollar } = CoursesClasses;
+
   return (
     <RequireAuth>
       <Collection MainTitle="Courses">
@@ -48,7 +49,6 @@ const Courses = () => {
             );
           })}
         </div>
-        <></>
       </Collection>
     </RequireAuth>
   );

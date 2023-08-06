@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useInput from "../../../context/useInput";
 import style from "../../../css/pages/home.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import handleSubmit from "../data/DraftData";
 import { AddTask } from "../../../redux/actionMethod";
 import DraftClasses from "./classNames/DraftClasses";
@@ -10,6 +10,7 @@ const Draft = () => {
   const [titleDraft, setTitleDraft] = useInput("", "text", "Title");
   const [textDraft, setTextDraft] = useInput("", "", "Your Thought");
   const [error, setError] = useState(false);
+  const userAuth = useSelector((state) => state.UserAuth.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,7 +37,9 @@ const Draft = () => {
               setTitleDraft,
               setTextDraft,
               dispatch,
-              AddTask
+              AddTask,
+              setError,
+              userAuth
             )
           }
         >
