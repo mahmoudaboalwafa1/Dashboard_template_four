@@ -2,40 +2,34 @@ import React, { useState, useEffect } from "react";
 import style from "../../../css/pages/home.module.css";
 import { classesTasks } from "./classNames/HomeClassNames";
 import { useSelector, useDispatch } from "react-redux";
-import { AddTask, DelTask, SelectTask } from "../../../redux/actionMethod";
-import {
-  setDoc,
-  onSnapshot,
-  doc,
-  collection,
-  getDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { DelTask, SelectTask } from "../../../redux/actionMethod";
+import { setDoc, onSnapshot, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 
 const Tasks = () => {
   const tasks = useSelector((state) => state.tasks);
   const [allTasks, setAllTasks] = useState([]);
-  const [indexUser, setIndexUser] = useState();
-  const [oldTasks, setOldTasks] = useState(true);
+  const [dataUser, setDataUser] = useState({});
   const userAuth = useSelector((state) => state.UserAuth.user);
-  const refdb = doc(db, "tasks", userAuth.displayName);
+  const refdb = doc(db, "dataUser", userAuth.displayName);
   const bodyMode = useSelector((state) => state.modeNow);
   const dispatch = useDispatch();
 
   const { classOne, classTwo, classThree } = classesTasks;
   const DeleteTask = (index) => {
     dispatch(DelTask(index));
-    const taskRef = doc(db, "tasks", userAuth.displayName);
+    const taskRef = doc(db, "dataUser", userAuth.displayName);
+
     getDoc(taskRef).then((yourTasks) => {
-      const tasksRes = yourTasks
+      const tasksRes = setDataUser(yourTasks)
         .data()
         .tasks.filter((task, id) => index != id && task);
-      updateDoc(taskRef, { tasks: tasksRes });
+
+      updateDoc(taskRef, { ...allData, tasks: tasksRes });
     });
   };
   const CheckTask = (taskSelect, index) => {
-    const taskRef = doc(db, "tasks", userAuth.displayName);
+    const taskRef = doc(db, "dataUser", userAuth.displayName);
     dispatch(SelectTask(taskSelect, index));
     const check = allTasks.filter((task, id) =>
       index === id ? { ...task, line: !taskSelect } : { ...task }
@@ -45,12 +39,21 @@ const Tasks = () => {
 
   useEffect(() => {
     const unsub = () => {
-      if (refdb.id && allTasks?.length === 0 && tasks.length > 0) {
-        setDoc(refdb, { tasks: tasks });
-      }
-
-      if (tasks.length > 0 && oldTasks && allTasks.length > 0) {
-        updateDoc(refdb, { tasks: [...allTasks, ...tasks] });
+      if (tasks.length === 0) {
+        if (allTasks.length === 0) {
+          const data = {
+            line: false,
+            title: "Dashboard Template Four By Mahmoud Abo Alwafa",
+            text: `Hello, my friend. You can add tasks from the "Draft" section, and don't worry, no one else can see the tasks except you. Additionally, the task will be saved in the database.`,
+          };
+          setDoc(
+            refdb,
+            { ...dataUser, tasks: [data, ...tasks] },
+            { merge: true }
+          );
+        }
+      } else {
+        updateDoc(refdb, { ...dataUser, tasks: [...allTasks, ...tasks] });
         tasks.splice(0, tasks.length);
       }
     };
@@ -62,6 +65,7 @@ const Tasks = () => {
   useEffect(() => {
     const unSub = onSnapshot(refdb, (yourTasks) => {
       const my_task = yourTasks?.data().tasks;
+      console.log(yourTasks.data());
       if (my_task) {
         setAllTasks(my_task);
       }
@@ -69,15 +73,6 @@ const Tasks = () => {
 
     return unSub;
   }, [allTasks]);
-
-  useEffect(() => {
-    if (allTasks.length > 0) {
-      allTasks?.map(
-        (task, index) =>
-          task?.displayName === userAuth.displayName && setIndexUser(index)
-      );
-    }
-  }, [tasks, allTasks]);
 
   return (
     <section id="tasks" className={`${style.tasks} ${classOne}`}>

@@ -22,7 +22,24 @@ import PsdImg from "./psd.png";
 import ZipImg from "./zip.png";
 import DillImg from "./dll.png";
 import EpsImg from "./eps.png";
-export { PdfImg, AviImg, PsdImg, ZipImg, DillImg, EpsImg };
+import SvgImg from "./svg.png";
+import JpgImg from "./jpg.png";
+import Mp3Img from "./mp3.png";
+import Mp4Img from "./mp4.png";
+import UnkownTypeImg from "./Unkowntype.jpg";
+export {
+  PdfImg,
+  AviImg,
+  PsdImg,
+  ZipImg,
+  DillImg,
+  EpsImg,
+  SvgImg,
+  JpgImg,
+  Mp3Img,
+  Mp4Img,
+  UnkownTypeImg,
+};
 //Project Section
 import ProjectImg from "./project.png";
 export { ProjectImg };

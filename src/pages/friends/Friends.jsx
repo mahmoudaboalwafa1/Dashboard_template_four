@@ -4,6 +4,7 @@ import FriendsData from "./data/FriendsData";
 import style from "../../css/pages/friends.module.css";
 import FriendsClasses from "./classNames/FriendsClasses";
 import RequireAuth from "../Regiester/RequireAuth";
+import { Link } from "react-router-dom";
 
 const Friends = () => {
   const { profileBox, iconsBox, iconPhone, iconEmail } = FriendsClasses;
@@ -47,9 +48,13 @@ const Friends = () => {
                       <p className="text-gray">{join}</p>
                     </div>
                     <div className={style.btns}>
-                      <a className={btnInfo} href="#">
+                      <Link
+                        to={"/friends/adelsamy"}
+                        className={btnInfo}
+                        href="#"
+                      >
                         Profile
-                      </a>
+                      </Link>
                       <a className={btnDanger} href="#">
                         Remove
                       </a>

@@ -132,6 +132,7 @@ div.statics a {
   width: 100px;
   height: 30px;
   font-size: 13px;
+  cursor: pointer;
 }
 
 div.statics a:hover i.up {

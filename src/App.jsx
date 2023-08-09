@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import MainContext from "./context/mainContext";
 import { Signin, Signup, Forget, Guest } from "./pages/index";
+import File from "./pages/files/data/File";
+import Friend from "./pages/friends/data/Friend";
 
 const App = () => {
   return (
@@ -23,7 +25,9 @@ const App = () => {
             <Route path="/projects" element={<Projects />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/friends" element={<Friends />} />
+            <Route path="/friends/:friend" element={<Friend />} />
             <Route path="/files" element={<Files />} />
+            <Route path="/files/:file" element={<File />} />
             <Route path="/plans" element={<Plans />} />
           </Routes>
         </BrowserRouter>
