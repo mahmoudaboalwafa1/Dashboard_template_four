@@ -52,6 +52,7 @@ const ContextNavbarProvider = ({ children }) => {
         handleSignOut,
         showSignout,
         message,
+        setMessage,
       }}
     >
       {children}

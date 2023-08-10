@@ -12,8 +12,9 @@ import { AlertError, AlertSuccess } from "../../components/MessageAlert";
 import { ContextNavbar } from "../../context/NavbarContext";
 
 const Signin = () => {
-  const { SignWithGithub, SignWithGoogle, error } = useContext(SigninContext);
-  const { message } = useContext(ContextNavbar);
+  const { SignWithGithub, SignWithGoogle, error, setError } =
+    useContext(SigninContext);
+  const { message, setMessage } = useContext(ContextNavbar);
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   useEffect(() => {
@@ -23,7 +24,13 @@ const Signin = () => {
     });
   }, [auth]);
 
-  console.log(message);
+  if (message) {
+    setTimeout(() => {
+      setMessage("");
+      console.log("done");
+    }, 10000);
+  }
+
   return (
     <Collection MainTitle="Signin">
       {SigninData.map((btnSign) => {

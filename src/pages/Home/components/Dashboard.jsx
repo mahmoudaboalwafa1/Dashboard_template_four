@@ -6,11 +6,12 @@ import DashboardClasses from "./classNames/DashboardClasses";
 import { DashboardContext } from "../../../context/DashboardContext";
 // Images Import
 import { WelcomeImg, UserImg } from "../../../images";
+import { AlertError } from "../../../components/MessageAlert";
 
 const Dashboard = () => {
   const { dashMode, padding, border, classOne } = DashboardClasses;
   const { alignCenter, btnShape, detailText } = DashboardClasses;
-  const { bodyMode, projectsData, userInfo, userAuth } =
+  const { bodyMode, projectsData, userInfo, userAuth, error } =
     useContext(DashboardContext);
   const { lastName, titleWelcome } = DashboardDataTwo;
 
@@ -45,6 +46,7 @@ const Dashboard = () => {
           Profile
         </Link>
       </div>
+      {error && <AlertError message={error} />}
     </section>
   );
 };

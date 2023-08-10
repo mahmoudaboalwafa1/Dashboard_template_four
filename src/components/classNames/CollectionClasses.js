@@ -13,7 +13,7 @@ const CollectionClasses = {
       ? ""
       : MainTitle === "Files"
       ? `d-flex ${styleFile.files} ${
-          FilesData ? [...FilesData]?.length <= 4 && "h-100" : "h-100"
+          FilesData ? [...FilesData]?.length === 1 && "h-100" : ""
         }`
       : style.all;
   },

@@ -2,18 +2,30 @@ import React from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const AlertSuccess = ({ message }) => {
-  const notify = () => toast.success(message);
+  const id = "id";
+  const notify = () => toast.success(message, { id });
 
   notify();
-  return <Toaster />;
+  return message && <Toaster />;
 };
 
 const AlertError = ({ message }) => {
-  const notify = () => toast.error(message);
+  const id = "id";
+
+  const notify = () => toast.error(message, { id });
+
+  notify();
+  return message && <Toaster />;
+};
+
+const AlertLoading = ({ message }) => {
+  const id = "id";
+
+  const notify = () => toast.loading(message, { id });
 
   notify();
 
   return <Toaster />;
 };
 
-export { AlertSuccess, AlertError };
+export { AlertSuccess, AlertError, AlertLoading };

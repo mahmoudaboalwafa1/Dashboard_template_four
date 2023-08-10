@@ -28,6 +28,7 @@ const Tasks = () => {
       updateDoc(taskRef, { ...allData, tasks: tasksRes });
     });
   };
+
   const CheckTask = (taskSelect, index) => {
     const taskRef = doc(db, "dataUser", userAuth.displayName);
     dispatch(SelectTask(taskSelect, index));
@@ -39,23 +40,18 @@ const Tasks = () => {
 
   useEffect(() => {
     const unsub = () => {
-      if (tasks.length === 0) {
+      if (tasks.length > 0) {
         if (allTasks.length === 0) {
-          const data = {
-            line: false,
-            title: "Dashboard Template Four By Mahmoud Abo Alwafa",
-            text: `Hello, my friend. You can add tasks from the "Draft" section, and don't worry, no one else can see the tasks except you. Additionally, the task will be saved in the database.`,
-          };
           setDoc(
             refdb,
-            { ...dataUser, tasks: [data, ...tasks] },
+            { ...dataUser, tasks: [...allTasks, ...tasks] },
             { merge: true }
           );
+        } else {
+          updateDoc(refdb, { ...dataUser, tasks: [...allTasks, ...tasks] });
         }
-      } else {
-        updateDoc(refdb, { ...dataUser, tasks: [...allTasks, ...tasks] });
-        tasks.splice(0, tasks.length);
       }
+      tasks.splice(0, tasks?.length);
     };
 
     unsub();
@@ -72,7 +68,7 @@ const Tasks = () => {
     });
 
     return unSub;
-  }, [allTasks]);
+  }, [tasks]);
 
   return (
     <section id="tasks" className={`${style.tasks} ${classOne}`}>

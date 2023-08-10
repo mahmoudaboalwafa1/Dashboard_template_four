@@ -32,8 +32,7 @@ div.courses p:not(p.peo) {
   line-height: 1.8;
 }
 
-div.courses p.peo,
-div.courses i {
+:is(div.courses) :is(p.pep, i) {
   font-size: 13px;
 }
 
@@ -77,7 +76,7 @@ div.course label {
   border-radius: 6px;
   transform: translateX(-50%);
   z-index: 1;
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
 }
 
 div.course input:checked + label {

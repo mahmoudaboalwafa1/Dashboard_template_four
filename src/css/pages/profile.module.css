@@ -210,7 +210,7 @@ div.country {
   -moz-appearance: none;
   appearance: none;
   border-radius: 35px;
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
   position: relative;
   transition: 0.3s;
   margin-right: auto;

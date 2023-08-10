@@ -112,8 +112,7 @@ section.draft {
   position: relative;
 }
 
-section.draft input,
-section.draft textarea {
+:is(section.draft) :is(input, textarea) {
   display: block;
   outline: none;
   border: none;
@@ -124,8 +123,7 @@ section.draft textarea {
   height: 40px;
 }
 
-body.dark section.draft input,
-body.dark section.draft {
+:is(body.dark section.draft) :is(input) {
   background-color: #333;
 }
 
@@ -148,7 +146,7 @@ section.draft button {
   right: 20px;
   bottom: 10px;
   border: 0;
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
 }
 
 div.money {
@@ -177,9 +175,7 @@ div.team i.green {
   color: #22c55e;
 }
 
-div.blue,
-div.orange,
-div.green {
+div:is(.blue, .orange, .green) {
   position: relative;
   left: 100px;
   top: -10px;
@@ -196,9 +192,7 @@ div.green {
   background-color: rgba(34, 197, 94, 0.2);
 }
 
-div.blue::after,
-div.orange::after,
-div.green::after {
+div:is(.blue, .orange, .green)::after {
   content: "";
   background-color: #0075ff;
   width: 80%;
@@ -217,9 +211,7 @@ div.green::after {
   width: 75%;
 }
 
-div.blue span,
-div.orange span,
-div.green span {
+:is(.blue, .orange, .green) span {
   padding: 5px;
   font-size: 13px;
   border-radius: 6px;
@@ -240,19 +232,7 @@ div.green span {
   right: 20%;
 }
 
-@media (max-width: 767px) {
-  div.green span {
-    right: 19%;
-  }
-
-  div.orange span {
-    right: 40%;
-  }
-}
-
-div.blue span::after,
-div.orange span::after,
-div.green span::after {
+:is(div.blue, div.orange, div.green) :is(span)::after {
   content: "";
   border-width: 7px;
   border-color: #0075ff transparent transparent;
@@ -268,6 +248,16 @@ div.orange span::after {
 
 div.green span::after {
   border-color: #22c55e transparent transparent;
+}
+
+@media (max-width: 767px) {
+  div.green span {
+    right: 19%;
+  }
+
+  div.orange span {
+    right: 40%;
+  }
 }
 
 /* end draft */
@@ -426,8 +416,7 @@ div.progec div {
   position: relative;
 }
 
-div.progec:last-of-type div,
-div.progec:nth-child(4) div {
+:is(div.progec):is(:last-of-type, :nth-child(4)) div {
   background-color: transparent;
 }
 

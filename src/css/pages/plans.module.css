@@ -95,7 +95,7 @@ p.current {
 }
 
 div.plan p.join:not(.current) {
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
   display: block;
   width: 50px;
   text-align: center;

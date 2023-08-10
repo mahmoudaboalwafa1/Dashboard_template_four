@@ -3,6 +3,7 @@ import React, { createContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { SetProjectsData } from "../redux/actionMethod";
+import { AlertError } from "../components/MessageAlert";
 
 const DashboardContext = createContext();
 
@@ -13,6 +14,7 @@ const DashboardProvider = ({ children }) => {
   const projectsData = useSelector((state) =>
     state.ProjectsData ? state.ProjectsData : false
   );
+  const [error, setError] = useState("");
   const [commits, setCommits] = useState();
   const dispatch = useDispatch();
 
@@ -37,7 +39,7 @@ const DashboardProvider = ({ children }) => {
           const commitsData = await Promise.all(commitsPromiess);
           setCommits(commitsData);
         } catch (error) {
-          alert(error.message);
+          error.message && setError(error.message);
         }
       }
     };
@@ -46,7 +48,15 @@ const DashboardProvider = ({ children }) => {
 
   return (
     <DashboardContext.Provider
-      value={{ bodyMode, projectsData, userInfo, userAuth, commits }}
+      value={{
+        bodyMode,
+        projectsData,
+        userInfo,
+        userAuth,
+        commits,
+        error,
+        setError,
+      }}
     >
       {children}
     </DashboardContext.Provider>
