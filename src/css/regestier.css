@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
 }
 
 .btn-sign img {

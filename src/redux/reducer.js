@@ -7,11 +7,11 @@ import {
   HIDE_OR_SHOW_WIDGETS,
   SELECT_TASK,
   SEND_NOTIFICATIONS,
-  SET_DATA_GITHUB,
   SET_PROJECTS_DATA,
   SET_SOCIAL_INFO,
   SET_USER_AUTH,
   UPDATE_PROFILE_SETTING,
+  SET_FILE,
 } from "./actionType";
 
 const mainReducer = (state = initialState, action) => {
@@ -91,6 +91,8 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         ProjectsData: (state.ProjectsData = action.projects),
       };
+    case SET_FILE:
+      return { ...state, FilesData: action.files };
   }
 
   return state;

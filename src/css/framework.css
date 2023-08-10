@@ -140,6 +140,7 @@ div.container {
 .btnshape {
   padding: 5px 10px;
   border-radius: 6px;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
 }
 
 .border-r-tr {

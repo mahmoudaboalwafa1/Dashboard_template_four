@@ -7,18 +7,18 @@ const StatisticsData = [
     color: `${style.blue} text-blue`,
   },
   {
-    fileImg: "fa-images fa-lg green",
-    text: "AVI Files",
+    fileImg: "fa-regular fa-file-video fa-lg green",
+    text: "Video Files",
     color: `${style.green} text-green`,
   },
   {
-    fileImg: "fa-file-word fa-lg red",
-    text: "WORD Files",
+    fileImg: "fa-regular fa-file-audio fa-lg red",
+    text: "AUDIO Files",
     color: `${style.red} text-red`,
   },
   {
-    fileImg: "fa-solid fa-file-csv fa-lg orange",
-    text: "CSV Files",
+    fileImg: "fa-images fa-lg fa-lg orange",
+    text: "Image Files",
     color: `${style.orange} text-orange`,
   },
 ];

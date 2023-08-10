@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 const Collection = ({ clients, MainTitle, children }) => {
   const userAuth = useSelector((state) => state.UserAuth.user);
   const projectsData = useSelector((state) => state.ProjectsData);
+  const FilesData = useSelector((state) => state.FilesData);
 
   return (
     <main>
@@ -19,7 +20,7 @@ const Collection = ({ clients, MainTitle, children }) => {
         <Nav />
         <div>
           <h1 className="dash">{MainTitle}</h1>
-          <div className={CollectionClasses.mainTitle(MainTitle)}>
+          <div className={CollectionClasses.mainTitle(MainTitle, FilesData)}>
             {children}
           </div>
           {clients}

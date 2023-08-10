@@ -2,33 +2,30 @@ import React, { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const AlertSuccess = ({ message }) => {
-  const notify = () => toast.success(message);
+  const id = "id";
+  const notify = () => toast.success(message, { id });
 
-  useEffect(() => {
-    const unsub = notify;
-
-    return unsub;
-  }, [message]);
-  return <Toaster />;
+  notify();
+  return message && <Toaster />;
 };
 
 const AlertError = ({ message }) => {
-  const [error, setError] = useState(message);
-  const [change, setChange] = useState(true);
-  const notify = () => toast.error(error);
-  useEffect(() => {
-    const unSub = () => {
-      notify();
-      if (message) {
-        setError(change && message);
-        setChange(!change);
-      }
-      return unSub;
-    };
-    unSub();
-  }, [message]);
+  const id = "id";
+
+  const notify = () => toast.error(message, { id });
+
+  notify();
+  return message && <Toaster />;
+};
+
+const AlertLoading = ({ message }) => {
+  const id = "id";
+
+  const notify = () => toast.loading(message, { id });
+
+  notify();
 
   return <Toaster />;
 };
 
-export { AlertSuccess, AlertError };
+export { AlertSuccess, AlertError, AlertLoading };

@@ -132,6 +132,7 @@ div.statics a {
   width: 100px;
   height: 30px;
   font-size: 13px;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
 }
 
 div.statics a:hover i.up {

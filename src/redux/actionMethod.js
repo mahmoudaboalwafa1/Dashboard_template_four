@@ -5,7 +5,7 @@ import {
   DEl_TASK,
   HIDE_OR_SHOW_WIDGETS,
   SELECT_TASK,
-  SET_DATA_GITHUB,
+  SET_FILE,
   SET_PROJECTS_DATA,
   SET_SOCIAL_INFO,
   SET_USER_AUTH,
@@ -84,6 +84,11 @@ const SetProjectsData = (projects) => {
   return { type: SET_PROJECTS_DATA, projects };
 };
 
+// Action Method Set File
+const SetFiles = (files) => {
+  return { type: SET_FILE, files };
+};
+
 export {
   SetProjectsData,
   DelTask,
@@ -95,4 +100,5 @@ export {
   setSocialInfo,
   HideShowWidget,
   SetUserAuth,
+  SetFiles,
 };

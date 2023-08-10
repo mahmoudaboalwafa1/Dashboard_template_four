@@ -19,7 +19,7 @@ div.all {
   width: 80px;
   height: 30px;
   border-radius: 35px;
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
   position: relative;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -83,7 +83,7 @@ section.genral button {
   border: 0;
   background-color: transparent;
   outline: 0;
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
 }
 
 @media (max-width: 768px) {
@@ -181,7 +181,7 @@ section.social i::after {
 }
 
 section.social a {
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
   margin-top: 10px;
   display: block;
 }

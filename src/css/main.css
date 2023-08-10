@@ -1,3 +1,109 @@
+/* start global rules */
+:root {
+  --color-red: #f44336;
+  --color-grey: #888;
+  --color-blue: #0075ff;
+  --color-blue-hover: #0d69d5;
+  --color-orange: #f59e0b;
+  --color-green: #22c55e;
+  --color-hr: #ddd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: url("../images/icons8-cursor-50.png"), auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0075ff;
+}
+
+body {
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+body.light {
+  background-color: white;
+  color: black;
+}
+
+body.dark {
+  background-color: black;
+  color: white;
+}
+
+.container {
+  padding: 0 25px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+ul {
+  list-style: none;
+}
+
+a {
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
+  text-decoration: none;
+  color: black;
+}
+
+img,
+video,
+iframe {
+  width: 100%;
+}
+
+body.dark a {
+  color: white;
+}
+
+button {
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
+}
+
+/* end global rules */
+main {
+  display: flex;
+}
+
+section.allsections {
+  width: calc(100% - 200px);
+  background-color: #d7dfe6;
+}
+
+body.dark section.allsections {
+  background-color: #333;
+}
+@media (max-width: 768px) {
+  section.allsections {
+    width: calc(100% - 70px);
+  }
+}
+
+:is(aside) :is(a.active, a:hover) {
+  background-color: #d4d4d4;
+  border-radius: 5px;
+} /*# sourceMappingURL=main.css.map */
+
+:is(body.dark aside) :is(a.active, a:hover) {
+  background-color: rgb(56 109 163);
+}
+
 /* start aside */
 aside a {
   display: inline-block !important;
@@ -89,7 +195,7 @@ aside li {
   padding-left: 10px;
   margin-bottom: 10px;
   transition: 0.3s;
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
   display: flex;
 }
 
@@ -161,7 +267,7 @@ nav input.darkmode {
   border-radius: 20px;
   margin-right: 20px;
   transition: 0.3s ease;
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
 }
 
 nav input.darkmode::after {
@@ -192,7 +298,7 @@ nav input.darkmode:checked::after {
 div.acc i {
   padding-right: 20px;
   position: relative;
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
 }
 
 div.acc i::after {
@@ -232,7 +338,7 @@ body.dark nav ul {
 
 div.acc img {
   width: 30px;
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
   position: relative;
 }
 
@@ -248,7 +354,7 @@ div.acc img {
   justify-content: center;
   border-radius: 6px;
   z-index: 4;
-  cursor: pointer;
+  cursor: url("../images/icons8-hand-cursor-40.png"), pointer !important;
 }
 
 body.dark .signout {
@@ -283,100 +389,4 @@ h1.dash::before {
   bottom: -10px;
   left: 20px;
   z-index: 1;
-}
-
-/* start global rules */
-:root {
-  --color-red: #f44336;
-  --color-grey: #888;
-  --color-blue: #0075ff;
-  --color-blue-hover: #0d69d5;
-  --color-orange: #f59e0b;
-  --color-green: #22c55e;
-  --color-hr: #ddd;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-::-webkit-scrollbar {
-  width: 15px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #0075ff;
-}
-
-body {
-  font-family: sans-serif;
-  overflow-x: hidden;
-}
-
-body.light {
-  background-color: white;
-  color: black;
-}
-
-body.dark {
-  background-color: black;
-  color: white;
-}
-
-.container {
-  padding: 0 25px;
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 10px;
-  }
-}
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-body.dark a {
-  color: white;
-}
-
-/* end global rules */
-main {
-  display: flex;
-}
-
-section.allsections {
-  width: calc(100% - 200px);
-  background-color: #d7dfe6;
-}
-
-body.dark section.allsections {
-  background-color: #333;
-}
-@media (max-width: 768px) {
-  section.allsections {
-    width: calc(100% - 70px);
-  }
-}
-
-aside a.active,
-aside a:hover {
-  background-color: #d4d4d4;
-  border-radius: 5px;
-} /*# sourceMappingURL=main.css.map */
-
-body.dark aside a.active,
-body.dark aside a:hover {
-  background-color: rgb(56 109 163);
 }
