@@ -7,7 +7,7 @@ import RequireAuth from "../Regiester/RequireAuth";
 import { FilesContext } from "../../context/FilesContext";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { doc, onSnapshot, setDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, onSnapshot, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AlertLoading } from "../../components/MessageAlert";
 
@@ -26,40 +26,39 @@ const Files = () => {
     setLoading,
   } = useContext(FilesContext);
   const { filesContainer, iconDownload, textGray, spaceBetween } = FilesClasses;
-  const [filesDataBase, setFilesDataBase] = useState([]);
+  const [filesCurrent, setFilesCurrent] = useState([]);
   const userAuth = useSelector((state) => state.UserAuth.user);
 
   useEffect(() => {
-    if (FilesData?.length > 0) {
-      SaveFilesToDataBase().then((files) => {
-        setFilesDataBase(files);
-      });
-    }
-
-    if (filesDataBase?.length > 0) {
-      if (filesDb?.length === 0) {
-        const filesRef = doc(db, "dataUser", userAuth?.displayName);
-
-        setDoc(filesRef, { files: filesDataBase }, { merge: true });
-      } else if (filesDb?.length > 0) {
-        const filesRef = doc(db, "dataUser", userAuth?.displayName);
-
-        updateDoc(filesRef, { files: filesDataBase });
+    const unsub = () => {
+      if (FilesData?.length > 0) {
+        SaveFilesToDataBase().then((files) => setFilesCurrent(files));
       }
-    }
 
-    if (filesDb?.length === 0) {
-      setLoading("Loading Upload Files");
-    } else {
-      setLoading("");
-    }
-    setFilesDataBase([]);
+      if (filesCurrent?.length > 0 && filesDb?.length === 0) {
+        const filesRef = doc(db, "dataUser", userAuth?.displayName);
+        setDoc(filesRef, { files: filesCurrent }, { merge: true });
+        console.log("setDoc");
+      } else if (filesCurrent?.length > 0 && filesDb?.length > 0) {
+        const filesRef = doc(db, "dataUser", userAuth?.displayName);
+        getDoc(filesRef).then((files) => {
+          updateDoc(filesRef, { files: filesCurrent });
+          setFilesCurrent([]);
+        });
+      }
+    };
 
-    userAuth &&
-      onSnapshot(doc(db, "dataUser", userAuth?.displayName), (Files) => {
-        setFilesDb(Files.data().files);
+    const unsubSnapshot = () => {
+      const filesRef = doc(db, "dataUser", userAuth?.displayName);
+      onSnapshot(filesRef, (files) => {
+        setFilesDb(files.data().files);
       });
-  }, [filesDb]);
+    };
+
+    unsubSnapshot();
+    unsub();
+    return unsub;
+  }, [FilesData, filesCurrent]);
 
   return (
     <RequireAuth>

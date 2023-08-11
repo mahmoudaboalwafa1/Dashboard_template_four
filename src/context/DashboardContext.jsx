@@ -43,7 +43,7 @@ const DashboardProvider = ({ children }) => {
         }
       }
     };
-    userAuth && getRepo();
+    userAuth?.length > 0 && getRepo();
   }, [userAuth, commits]);
 
   return (
