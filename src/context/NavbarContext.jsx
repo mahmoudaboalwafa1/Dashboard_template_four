@@ -22,6 +22,14 @@ const ContextNavbarProvider = ({ children }) => {
 
   const [showNotification, setShowNotification] = useState(false);
   const ShowNotificationArea = () => {
+    Notification.requestPermission().then((request) => {
+      request === "granted" &&
+        new Notification(`Welcome To Dashboard , ${userAuth.displayName}`, {
+          body: `Hello ${userAuth.displayName} this control panel is not yet completed and will be developed [Mahmoud Abo Alwafa]`,
+          icon: userAuth.photoURL,
+          dir: "rtl",
+        });
+    });
     userAuth && setShowNotification(!showNotification);
     setShowSignout(false);
   };
