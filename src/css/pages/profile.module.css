@@ -78,7 +78,7 @@ ul.details_dark:hover::after {
   height: 100%;
   position: absolute;
   left: -10px;
-  bottom: 25px;
+  bottom: 18px;
 }
 
 ul.details:not(:last-of-type)::before,

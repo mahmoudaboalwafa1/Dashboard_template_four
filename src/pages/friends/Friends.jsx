@@ -1,32 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Collection from "./../../components/Collection";
 import style from "../../css/pages/friends.module.css";
 import FriendsClasses from "./classNames/FriendsClasses";
 import RequireAuth from "../Regiester/RequireAuth";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { setDoc, doc, onSnapshot, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AlertError, AlertLoading } from "../../components/MessageAlert";
+import { FriendsContext } from "../../context/FriendsContext";
 
 const Friends = () => {
   const { profileBox, iconsBox, iconPhone, iconEmail } = FriendsClasses;
-  const { boxImg, iconSmile, iconCommit, iconNewspaper } = FriendsClasses;
-  const [error, setError] = useState("");
+  const { boxImg, iconSmile, iconCommit } = FriendsClasses;
   const { boxControl, boxInfo, btnInfo, btnDanger } = FriendsClasses;
-  const projectsData = useSelector((state) => state.ProjectsData);
-  const userAuth = useSelector((state) => state.UserAuth.user);
-  const [dataUsers, setDataUsers] = useState([]);
-  const [loading, setLoading] = useState("wait to loading users");
-  const [dataFriend, setDataFriend] = useState({
-    name: userAuth?.displayName,
-    photo: userAuth?.photoURL,
-    friends: 0,
-    projects: projectsData?.length,
-    files: 0,
-    number: userAuth?.phoneNumber,
-    email: userAuth?.email,
-  });
+  const {
+    error,
+    setError,
+    userAuth,
+    dataUsers,
+    setDataUsers,
+    loading,
+    setLoading,
+    dataFriend,
+    HandleCurrentUser,
+  } = useContext(FriendsContext);
 
   useEffect(() => {
     const unsub = () => {
@@ -35,22 +32,23 @@ const Friends = () => {
         getDoc(userRef)
           .then((snapshot) => {
             const userData = snapshot?.data()?.user || [];
+
             const dataNewFriend = userData.map((user, index) =>
               user.name !== dataFriend.name ? user : []
             );
 
             const updatedUserData = [...dataNewFriend, dataFriend];
 
-            updateDoc(userRef, { user: updatedUserData });
-            const unsubscribe = onSnapshot(userRef, (snapshot) => {
-              setDataUsers(snapshot.data().user);
-            });
-
+            if (userData?.length > 0) {
+              updateDoc(userRef, { user: updatedUserData });
+              onSnapshot(userRef, (snapshot) => {
+                setDataUsers(snapshot.data().user);
+              });
+            } else {
+              setDoc(userRef, { user: updatedUserData });
+            }
             setLoading(false);
             setError("");
-            return () => {
-              unsubscribe();
-            };
           })
           .catch((err) => {
             setLoading(false);
@@ -62,7 +60,6 @@ const Friends = () => {
         });
       }
     };
-    console.log(dataFriend);
 
     unsub();
     return unsub;
@@ -108,9 +105,10 @@ const Friends = () => {
                       </div>
                       <div className={style.btns}>
                         <Link
-                          to={"/friends/adelsamy"}
+                          to={`/friends/${name}`}
                           className={btnInfo}
                           href="#"
+                          onClick={() => HandleCurrentUser(index)}
                         >
                           Profile
                         </Link>

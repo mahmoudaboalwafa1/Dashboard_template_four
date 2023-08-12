@@ -34,31 +34,42 @@ const Files = () => {
       if (FilesData?.length > 0) {
         SaveFilesToDataBase().then((files) => setFilesCurrent(files));
       }
+    };
 
-      if (filesCurrent?.length > 0 && filesDb?.length === 0) {
+    unsub();
+    return unsub;
+  }, [FilesData]);
+
+  useEffect(() => {
+    const unsub = () => {
+      if (filesDb.length === 0 && filesCurrent?.length > 0) {
         const filesRef = doc(db, "dataUser", userAuth?.displayName);
-        setDoc(filesRef, { files: filesCurrent }, { merge: true });
-        console.log("setDoc");
-      } else if (filesCurrent?.length > 0 && filesDb?.length > 0) {
+        setDoc(
+          filesRef,
+          { files: filesCurrent },
+          { merge: true, mergeFields: true }
+        );
+      } else if (filesDb.length > 0 && filesCurrent?.length > 0) {
         const filesRef = doc(db, "dataUser", userAuth?.displayName);
-        getDoc(filesRef).then((files) => {
-          updateDoc(filesRef, { files: filesCurrent });
-          setFilesCurrent([]);
+
+        updateDoc(filesRef, { files: filesCurrent });
+      }
+
+      if (userAuth?.displayName) {
+        const filesRef = doc(db, "dataUser", userAuth?.displayName);
+        onSnapshot(filesRef, (files) => {
+          if (files?.data()?.files.length > 0) {
+            setFilesDb(files?.data()?.files);
+          }
         });
       }
     };
 
-    const unsubSnapshot = () => {
-      const filesRef = doc(db, "dataUser", userAuth?.displayName);
-      onSnapshot(filesRef, (files) => {
-        setFilesDb(files.data().files);
-      });
-    };
-
-    unsubSnapshot();
     unsub();
     return unsub;
-  }, [FilesData, filesCurrent]);
+  }, [userAuth, filesCurrent]);
+
+  console.log(filesDb);
 
   return (
     <RequireAuth>

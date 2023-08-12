@@ -69,9 +69,10 @@ const FileProvider = ({ children }) => {
       FilesData?.length > 0 &&
         [...FilesData]?.map(async (file) => {
           const storageRef = ref(storage, `filesUser/${file.name}`);
-          uploadBytes(storageRef, file);
+          await uploadBytes(storageRef, file);
           const downloadUrl = await getDownloadURL(storageRef);
           const { name, type, size } = await file;
+          console.log(file);
           return {
             url: downloadUrl,
             type: type,

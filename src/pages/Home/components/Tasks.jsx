@@ -11,21 +11,21 @@ const Tasks = () => {
   const [allTasks, setAllTasks] = useState([]);
   const [dataUser, setDataUser] = useState({});
   const userAuth = useSelector((state) => state.UserAuth.user);
-  const refdb = doc(db, "dataUser", userAuth.displayName);
+  const refdb = doc(db, "dataUser", userAuth?.displayName);
   const bodyMode = useSelector((state) => state.modeNow);
   const dispatch = useDispatch();
 
   const { classOne, classTwo, classThree } = classesTasks;
   const DeleteTask = (index) => {
     dispatch(DelTask(index));
-    const taskRef = doc(db, "dataUser", userAuth.displayName);
+    const taskRef = doc(db, "dataUser", userAuth?.displayName);
 
     getDoc(taskRef).then((yourTasks) => {
       const tasksRes = setDataUser(yourTasks)
-        .data()
+        ?.data()
         .tasks.filter((task, id) => index != id && task);
 
-      updateDoc(taskRef, { ...allData, tasks: tasksRes });
+      updateDoc(taskRef, { tasks: tasksRes });
     });
   };
 
@@ -35,6 +35,8 @@ const Tasks = () => {
     const check = allTasks.filter((task, id) =>
       index === id ? { ...task, line: !taskSelect } : { ...task }
     );
+
+    console.log("check");
     updateDoc(taskRef, { tasks: check });
   };
 
@@ -45,7 +47,7 @@ const Tasks = () => {
           setDoc(
             refdb,
             { ...dataUser, tasks: [...allTasks, ...tasks] },
-            { merge: true }
+            { merge: true, mergeFields: true }
           );
         } else {
           updateDoc(refdb, { ...dataUser, tasks: [...allTasks, ...tasks] });
@@ -60,8 +62,7 @@ const Tasks = () => {
 
   useEffect(() => {
     const unSub = onSnapshot(refdb, (yourTasks) => {
-      const my_task = yourTasks?.data().tasks;
-      console.log(yourTasks.data());
+      const my_task = yourTasks?.data()?.tasks;
       if (my_task) {
         setAllTasks(my_task);
       }

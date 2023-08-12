@@ -6,7 +6,7 @@ import ProfileSettingsDatas from "../data/ProfileSettingsData";
 import DatasProfileSettings from "./datasProfileSettings";
 import { useSelector } from "react-redux";
 
-const ProfileSettings = () => {
+const ProfileSettings = ({ friend, dataUsers, userNow }) => {
   const { sectionProfileSettings, infoContainer } = ProfileSettingsClasses;
   const { rateBox, textUser, textGray } = ProfileSettingsClasses;
   const { containerStars, stars, showUser } = ProfileSettingsDatas;
@@ -17,11 +17,21 @@ const ProfileSettings = () => {
       <div className="container">
         <div className={infoContainer}>
           <div className={style.prof}>
-            <img
-              src={userAuth.photoURL ? userAuth.photoURL : UserImg}
-              alt="profile"
-            />
-            <p className={textUser}>{showUser(userAuth)}</p>
+            {friend ? (
+              <img src={dataUsers[userNow]?.photo} />
+            ) : (
+              <img
+                src={userAuth?.photoURL ? userAuth?.photoURL : UserImg}
+                alt="profile"
+              />
+            )}
+            {friend ? (
+              <p>
+                <p className={textUser}>{dataUsers[userNow]?.name}</p>
+              </p>
+            ) : (
+              <p className={textUser}>{showUser(userAuth)}</p>
+            )}
             <p className={textGray}>Level 20</p>
             <div className={containerStars}>
               {stars.map((star, i) => (
@@ -30,7 +40,11 @@ const ProfileSettings = () => {
             </div>
             <p className={rateBox}>550 Rating</p>
           </div>
-          <DatasProfileSettings />
+          <DatasProfileSettings
+            friend={true}
+            dataUsers={dataUsers}
+            userNow={userNow}
+          />
         </div>
       </div>
     </section>

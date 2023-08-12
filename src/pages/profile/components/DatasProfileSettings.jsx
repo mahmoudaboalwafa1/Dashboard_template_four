@@ -4,14 +4,16 @@ import ProfileSettingsClasses from "../classNames/ProfileSettingsClasses";
 import ProfileSettingsDatas from "../data/ProfileSettingsData";
 import { UpdProfileSettings } from "../../../redux/actionMethod";
 import { useSelector, useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 
-const DatasProfileSettings = () => {
+const DatasProfileSettings = ({ friend, dataUsers, userNow }) => {
   const { changeToDark, changeToCheck, textGrayTwo } = ProfileSettingsClasses;
   const { changeToCheckTwo, changeToCheckThree } = ProfileSettingsClasses;
   const { oneTitle, inputProps } = ProfileSettingsDatas;
   const ProfileSettingsData = useSelector((state) => state.profileSettingsData);
   const bodyMode = useSelector((state) => state.modeNow);
   const userAuth = useSelector((state) => state.UserAuth.user);
+  const friendLocation = useLocation();
 
   const dispatch = useDispatch();
   const handleCheckBox = (e, index) => {
@@ -30,27 +32,40 @@ const DatasProfileSettings = () => {
                 <div className={changeToCheck(checked)}>
                   <li className={textGrayTwo}>
                     {titleTwo}
-                    <input placeholder={oneTitle(userAuth, textOne, id)} />
+                    <input
+                      placeholder={oneTitle(
+                        userAuth,
+                        textOne,
+                        id,
+                        dataUsers && dataUsers[userNow]?.name
+                      )}
+                    />
                   </li>
                 </div>
                 <div className={changeToCheckTwo(checked)}>
                   <li className="pt-20 text-gray">
                     {titleThree}
-                    <input placeholder={textTwo} />
+                    {!friendLocation.pathname?.includes("friends") && (
+                      <input placeholder={textTwo} />
+                    )}
                   </li>
                 </div>
                 <div className={changeToCheckThree(checked)}>
                   <li className="pt-20 text-gray">
                     {titleFour}
-                    <input placeholder={textThree} />
+                    {!friendLocation.pathname?.includes("friends") && (
+                      <input placeholder={textThree} />
+                    )}
                   </li>
                 </div>
               </div>
-              <input
-                checked={checked}
-                {...inputProps}
-                onChange={(e) => handleCheckBox(e, index)}
-              />
+              {!friendLocation.pathname?.includes("friends") && (
+                <input
+                  checked={checked}
+                  {...inputProps}
+                  onChange={(e) => handleCheckBox(e, index)}
+                />
+              )}
             </ul>
           </div>
         );

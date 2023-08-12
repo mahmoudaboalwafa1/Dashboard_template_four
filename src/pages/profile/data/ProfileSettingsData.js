@@ -11,8 +11,14 @@ const ProfileSettingsDatas = {
   showUser: (userAuth) => {
     return userAuth ? userAuth.displayName : "UserName";
   },
-  oneTitle: (userAuth, textOne, id) => {
-    return id != 0 ? textOne : userAuth ? userAuth.displayName : textOne;
+  oneTitle: (userAuth, textOne, id, name) => {
+    return id != 0
+      ? textOne
+      : name
+      ? name
+      : userAuth
+      ? userAuth.displayName
+      : textOne;
   },
   inputProps: {
     type: "checkbox",

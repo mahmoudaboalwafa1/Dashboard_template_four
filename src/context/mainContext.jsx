@@ -4,6 +4,7 @@ import { ContextSocialProvider } from "./SocialContext";
 import { DashboardProvider } from "./DashboardContext";
 import { SigninProvider } from "./SigninContext";
 import { FileProvider } from "../context/FilesContext";
+import { FriendsProvider } from "./FriendsContext";
 
 const MainContext = ({ children }) => {
   return (
@@ -11,7 +12,9 @@ const MainContext = ({ children }) => {
       <ContextSocialProvider>
         <SigninProvider>
           <DashboardProvider>
-            <FileProvider>{children}</FileProvider>
+            <FileProvider>
+              <FriendsProvider>{children}</FriendsProvider>
+            </FileProvider>
           </DashboardProvider>
         </SigninProvider>
       </ContextSocialProvider>
