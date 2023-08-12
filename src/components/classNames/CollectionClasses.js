@@ -5,8 +5,8 @@ const CollectionClasses = {
   mainTitle: (MainTitle, FilesData, dataUsers, userNow) => {
     return MainTitle == "Courses"
       ? ""
-      : MainTitle === "Friends" && dataUsers.length < 3
-      ? "h-100"
+      : MainTitle === "Friends"
+      ? ""
       : MainTitle === "Profile"
       ? ""
       : MainTitle === "Plans" || MainTitle === dataUsers[userNow]?.name
