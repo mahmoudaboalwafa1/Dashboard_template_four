@@ -23,6 +23,8 @@ const Friends = () => {
     setLoading,
     dataFriend,
     HandleCurrentUser,
+    setUpdatedUserData,
+    updatedUserData,
   } = useContext(FriendsContext);
 
   useEffect(() => {
@@ -37,9 +39,14 @@ const Friends = () => {
               user.name !== dataFriend.name ? user : []
             );
 
-            const updatedUserData = [...dataNewFriend, dataFriend];
+            setUpdatedUserData(
+              [...dataNewFriend, dataFriend].filter(
+                (data) => data.name != undefined
+              )
+            );
 
-            if (userData?.length > 0) {
+            if (updatedUserData?.length > 0) {
+              console.log(updatedUserData);
               updateDoc(userRef, { user: updatedUserData });
               onSnapshot(userRef, (snapshot) => {
                 setDataUsers(snapshot.data().user);

@@ -7,7 +7,7 @@ import RequireAuth from "../Regiester/RequireAuth";
 import { FilesContext } from "../../context/FilesContext";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { doc, getDoc, onSnapshot, setDoc, updateDoc } from "firebase/firestore";
+import { doc, onSnapshot, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AlertLoading } from "../../components/MessageAlert";
 
@@ -23,7 +23,6 @@ const Files = () => {
     setFilesDb,
     filesDb,
     loading,
-    setLoading,
   } = useContext(FilesContext);
   const { filesContainer, iconDownload, textGray, spaceBetween } = FilesClasses;
   const [filesCurrent, setFilesCurrent] = useState([]);
@@ -68,8 +67,6 @@ const Files = () => {
     unsub();
     return unsub;
   }, [userAuth, filesCurrent]);
-
-  console.log(filesDb);
 
   return (
     <RequireAuth>

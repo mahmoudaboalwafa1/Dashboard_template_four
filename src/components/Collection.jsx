@@ -4,12 +4,16 @@ import Aside from "./Aside";
 import CollectionClasses from "./classNames/CollectionClasses";
 import { useSelector } from "react-redux";
 import { FriendsContext } from "../context/FriendsContext";
+import { FilesContext } from "../context/FilesContext";
 
 const Collection = ({ clients, MainTitle, children }) => {
   const userAuth = useSelector((state) => state.UserAuth.user);
   const projectsData = useSelector((state) => state.ProjectsData);
   const FilesData = useSelector((state) => state.FilesData);
-  const { dataUsers, userNow } = useContext(FriendsContext);
+  const { dataUsers, userNow, updatedUserData } = useContext(FriendsContext);
+  const { filesDb, index } = useContext(FilesContext);
+
+  console.log("collection");
 
   return (
     <main>
@@ -27,8 +31,14 @@ const Collection = ({ clients, MainTitle, children }) => {
               MainTitle,
               FilesData,
               dataUsers,
-              userNow
+              userNow,
+              updatedUserData,
+              filesDb,
+              index
             )}
+            style={{
+              display: MainTitle.includes(filesDb[index]?.name) && "block",
+            }}
           >
             {children}
           </div>

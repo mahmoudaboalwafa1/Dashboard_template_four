@@ -7,6 +7,7 @@ const FriendsContext = createContext(null);
 const FriendsProvider = ({ children }) => {
   const [error, setError] = useState("");
   const [userNow, setUserNow] = useState();
+  const [updatedUserData, setUpdatedUserData] = useState([]);
   const projectsData = useSelector((state) => state.ProjectsData);
   const userAuth = useSelector((state) => state.UserAuth.user);
   const [dataUsers, setDataUsers] = useState([]);
@@ -24,7 +25,6 @@ const FriendsProvider = ({ children }) => {
 
   const HandleCurrentUser = (index) => {
     setUserNow(index);
-    console.log(index);
   };
 
   return (
@@ -43,6 +43,8 @@ const FriendsProvider = ({ children }) => {
         setDataFriend,
         userNow,
         HandleCurrentUser,
+        updatedUserData,
+        setUpdatedUserData,
       }}
     >
       {children}

@@ -5,8 +5,6 @@ import { FilesContext } from "../../../context/FilesContext";
 const File = () => {
   const { index, filesDb } = useContext(FilesContext);
 
-  console.log(filesDb[index]);
-
   if (filesDb?.length > 0) {
     return (
       <Collection MainTitle={filesDb[index]?.name}>

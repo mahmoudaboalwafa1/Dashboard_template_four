@@ -1,5 +1,12 @@
-.h-100 {
+.h-100,
+.h-100-friends {
   height: 100vh;
+}
+
+@media (width <= 874px) {
+  .h-100-friends {
+    height: unset;
+  }
 }
 
 .d-flex {
