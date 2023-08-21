@@ -16,7 +16,6 @@ const Friends = () => {
   const {
     error,
     setError,
-    userAuth,
     dataUsers,
     setDataUsers,
     loading,
@@ -25,11 +24,25 @@ const Friends = () => {
     HandleCurrentUser,
     setUpdatedUserData,
     updatedUserData,
+    userAuth,
+    setDataFriend,
+    projectsData,
+    filesDb,
   } = useContext(FriendsContext);
 
   useEffect(() => {
     const unsub = () => {
       if (userAuth) {
+        setDataFriend({
+          name: userAuth.displayName,
+          photo: userAuth.photoURL,
+          friends: 0,
+          projects: projectsData.length,
+          files: filesDb.length,
+          number: userAuth.phoneNumber,
+          email: userAuth.email,
+        });
+
         const userRef = doc(db, "AllUsers", "users");
         getDoc(userRef)
           .then((snapshot) => {
@@ -45,8 +58,7 @@ const Friends = () => {
               )
             );
 
-            if (updatedUserData?.length > 0) {
-              console.log(updatedUserData);
+            if (userData?.length > 0) {
               updateDoc(userRef, { user: updatedUserData });
               onSnapshot(userRef, (snapshot) => {
                 setDataUsers(snapshot.data().user);

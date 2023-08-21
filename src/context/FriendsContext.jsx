@@ -13,19 +13,20 @@ const FriendsProvider = ({ children }) => {
   const [dataUsers, setDataUsers] = useState([]);
   const [loading, setLoading] = useState("wait to loading users");
   const { filesDb } = useContext(FilesContext);
-  const [dataFriend, setDataFriend] = useState({
-    name: userAuth?.displayName,
-    photo: userAuth?.photoURL,
-    friends: 0,
-    projects: projectsData?.length,
-    files: filesDb?.length,
-    number: userAuth?.phoneNumber,
-    email: userAuth?.email,
-  });
 
   const HandleCurrentUser = (index) => {
     setUserNow(index);
   };
+
+  const [dataFriend, setDataFriend] = useState({
+    name: "",
+    photo: "",
+    friends: 0,
+    projects: "",
+    files: "",
+    number: "",
+    email: "",
+  });
 
   return (
     <FriendsContext.Provider

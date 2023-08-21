@@ -13,8 +13,6 @@ const Collection = ({ clients, MainTitle, children }) => {
   const { dataUsers, userNow, updatedUserData } = useContext(FriendsContext);
   const { filesDb, index } = useContext(FilesContext);
 
-  console.log("collection");
-
   return (
     <main>
       <Aside />
